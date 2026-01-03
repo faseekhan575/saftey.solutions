@@ -9,10 +9,14 @@ import Layout from './layout/Layout.jsx'
 import Home from './home/home.jsx'
 import About from './about-us/About.jsx'
 import Service from './services/service.jsx'
-
+import Contact from './contact-us/Contact.jsx'
+import Signup from './LOGINS/Signup.jsx'
+import Login from './LOGINS/Login.jsx'
+import { Toaster } from 'react-hot-toast'
 
 const router = createBrowserRouter ([
   {
+    
         path: "/",
         element: <Layout/>,
         children:[
@@ -25,14 +29,26 @@ const router = createBrowserRouter ([
           },{
             path:"/services",
             element: <Service/>
+          },{
+            path:"/contact",
+            element: <Contact/>
           }
+          
         ]
       }
+      ,{
+          path:"/signup",
+          element: <Signup/>
+        },{
+          path:"/login",
+          element: <Login/>
+        }
     
 ])
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <Toaster position="top-right" reverseOrder={false} /> 
    <RouterProvider router={router}/>
   </StrictMode>,
 )

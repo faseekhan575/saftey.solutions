@@ -41,7 +41,7 @@ function About() {
             initial={{ opacity: 0, y: -40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.1 }}
             className="text-5xl md:text-7xl font-extrabold text-white uppercase tracking-wider mb-8"
           >
             About <span className="text-orange-500">SS.SAFETY SOLUTIONS</span>

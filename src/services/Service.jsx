@@ -76,7 +76,7 @@ function Service() {
             initial={{ opacity: 0, y: -50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.9 }}
+            transition={{ duration: 0.1 }}
             className="text-5xl md:text-7xl font-extrabold text-white uppercase tracking-wider mb-8 drop-shadow-2xl"
           >
             Our <span className="text-orange-500">Services</span>
