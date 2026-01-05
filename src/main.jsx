@@ -13,6 +13,7 @@ import Contact from './contact-us/Contact.jsx'
 import Signup from './LOGINS/Signup.jsx'
 import Login from './LOGINS/Login.jsx'
 import { Toaster } from 'react-hot-toast'
+import Products from './products/Products.jsx'
 
 const router = createBrowserRouter ([
   {
@@ -32,6 +33,9 @@ const router = createBrowserRouter ([
           },{
             path:"/contact",
             element: <Contact/>
+          },{
+            path:"/products",
+            element:<Products/>
           }
           
         ]

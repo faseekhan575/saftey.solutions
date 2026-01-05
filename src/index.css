@@ -33,3 +33,34 @@ body{
 .custom-pagination::after {
   display: none !important;
 }
+
+/* pagination container margin-top */
+.product-swiper .swiper-pagination {
+  margin-top: 35px;
+  position: relative;
+}
+
+/* pagination bullets base */
+.product-swiper .swiper-pagination-bullet {
+  width: 32px;
+  height: 32px;
+  background: orange;
+  color: #111;
+  opacity: 1;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* active page */
+.product-swiper .swiper-pagination-bullet-active {
+  background: red;
+  color: white;
+  border-color: #ef4444;
+}
+
+/* number inside bullet */
+.product-swiper .swiper-pagination-bullet::before {
+  content: attr(aria-label);
+}
