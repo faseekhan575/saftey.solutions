@@ -25,6 +25,7 @@ const categories = [
     'Spill Prevention Containment & Control',
     'Industrial Tools & Machinery',
     'Hand tools',
+    'Power Tools',
 ];
 
 
@@ -660,6 +661,10 @@ const productsData = {
         { title: 'Hanging Card Pearl Nickel 6 CUTTER', price: '390', originalPrice: null, image: 'https://m.media-amazon.com/images/I/71x8282828L._AC_UF1000,1000_QL80_.jpg', desc: 'Pearl nickel 6-inch diagonal cutter on hanging card.', rating: 4.7, reviews: 150, sold: '750+' }
 
 
+      
+    ],
+    'power tools': [
+        
     ]
 
 
