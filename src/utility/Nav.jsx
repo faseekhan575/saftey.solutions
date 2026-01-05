@@ -84,7 +84,7 @@ function Nav() {
 
               <span className="font-extrabold tracking-tight text-gray-900 text-center lg:text-left">
                 <span className="block text-xl lg:text-2xl">
-                  <span className="text-orange-600">SS</span>.SAFETY
+                  <span className="text-orange-600">S.S</span>SAFETY
                 </span>
                 <span className="block text-xl lg:hidden">SOLUTIONS</span>
                 <span className="hidden lg:inline lg:ml-1 text-2xl">
