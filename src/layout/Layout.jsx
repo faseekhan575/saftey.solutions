@@ -1,6 +1,6 @@
 import React from 'react'
 import Nav from '../utility/Nav'
-import Fotter from '../utility/fotter'
+import Fotter from '../utility/Fott'
 import { Outlet } from 'react-router-dom'
 
 
