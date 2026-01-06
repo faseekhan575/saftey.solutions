@@ -64,3 +64,19 @@ body{
 .product-swiper .swiper-pagination-bullet::before {
   content: attr(aria-label);
 }
+
+.related-products-swiper .swiper-pagination-bullet {
+  background: #f97316;
+  color: white;
+  width: 28px;
+  height: 28px;
+  text-align: center;
+  line-height: 28px;
+  font-size: 14px;
+  opacity: 0.5;
+}
+
+.related-products-swiper .swiper-pagination-bullet-active {
+  opacity: 1;
+  background: #ea580c;
+}

@@ -13,6 +13,7 @@ import Signup from './LOGINS/Signup.jsx'
 import Login from './LOGINS/Login.jsx'
 import { Toaster } from 'react-hot-toast'
 import Products from './products/Products.jsx'
+import ProductDetails from './Details/Details.jsx'
 
 const router = createBrowserRouter ([
   {
@@ -35,7 +36,10 @@ const router = createBrowserRouter ([
           },{
             path:"/products",
             element:<Products/>
-          }
+          },{
+  path: "/products/:id",
+  element: <ProductDetails />
+}
           
         ]
       }
