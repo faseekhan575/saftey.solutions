@@ -122,17 +122,19 @@ function Contact() {
               transition={{ duration: 0.7 }}
               className="space-y-8"
             >
+              {/* Fixed & Responsive Map with Original Location */}
               <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3401.5!2d74.3587!3d31.5204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDMxJzE0LjQiTiA3NMKwMjEnMzEuMyJF!5e0!3m2!1sen!2s!4v1730000000000&q=31.5204,74.3587&z=15"
-                  width="100%"
-                  height="400"
-                  style={{ border: 0 }}
-                  allowFullScreen=""
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="SS.SAFETY SOLUTIONS Location"
-                ></iframe>
+                <div className="relative pt-[75%]"> {/* Responsive 4:3 aspect ratio - perfect for maps */}
+                  <iframe
+                    className="absolute top-0 left-0 w-full h-full"
+                    src="https://maps.google.com/maps?q=31.5204,74.3587&hl=en&z=15&output=embed"
+                    style={{ border: 0 }}
+                    allowFullScreen=""
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="SS.SAFETY SOLUTIONS Location"
+                  ></iframe>
+                </div>
               </div>
 
               <div className="grid grid-cols-2 gap-6">
@@ -168,7 +170,7 @@ function Contact() {
           <div className="flex flex-col sm:flex-row justify-center items-center gap-8">
             {/* Decent WhatsApp Button */}
             <motion.a
-              href="https://wa.me/919876543210"
+              href="https://wa.me/923347616779?text=Hi%20I%20am%20MR-sufiyan%20CEO%20of%20SS.%20Safety%20Solution.%20How%20can%20I%20help%20you"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}

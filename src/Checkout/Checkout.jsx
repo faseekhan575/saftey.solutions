@@ -353,13 +353,16 @@ function Checkout() {
                 </button>
 
                 {/* WhatsApp Order Button */}
-                <button
+                <a href="https://wa.me/923347616779?text=Hi%20I%20am%20MR-sufiyan%20CEO%20of%20SS.%20Safety%20Solution.%20How%20can%20I%20help%20you
+">
+                  <button
                   onClick={handleWhatsAppOrder}
                   className="w-full bg-green-600 hover:bg-green-700 text-white font-bold text-xl py-5 rounded-xl shadow-lg hover:shadow-xl transition transform hover:scale-105 flex items-center justify-center gap-4"
                 >
                   <MessageCircle size={28} />
                   Order via WhatsApp
                 </button>
+                </a>
               </div>
             </div>
           </div>

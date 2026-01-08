@@ -1,10 +1,10 @@
 import { ShoppingCart } from 'lucide-react';
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
-import { productsData, categories } from '../cat/ALL'; // Make sure this path is correct
+import { productsData, categories } from '../cat/ALL';
 import "swiper/css";
 import "swiper/css/pagination";
 import { useCart } from '../context/CartContext';
@@ -16,20 +16,50 @@ function Products() {
     const tabRefs = useRef({});
     const tabsContainerRef = useRef(null);
     const stickyRef = useRef(null);
-    const { addToCart } = useCart(); // ← Get the function
+    const location = useLocation();
+    const { addToCart } = useCart();
 
-  const handleAddToCart = (product, e) => {
-    e.preventDefault();
-    e.stopPropagation(); // Prevents going to product detail
+    const handleAddToCart = (product, e) => {
+        e.preventDefault();
+        e.stopPropagation();
 
-   addToCart({
-  id: product.id,
-  title: product.title,
-  price: product.price,  // ← JUST THIS — pass exactly what comes from product
-  image: product.image,
-});
-    toast.success(`${product.title} added to cart!`);
-  };
+        addToCart({
+            id: product.id,
+            title: product.title,
+            price: product.price,
+            image: product.image,
+            quantity: 1,
+        });
+        toast.success(`${product.title} added to cart!`);
+    };
+
+    // ROBUST HASH SCROLLING - Multiple attempts with offset for sticky header
+    useEffect(() => {
+        if (location.hash) {
+            const id = location.hash.slice(1);
+
+            const tryScroll = () => {
+                const element = document.getElementById(id);
+                if (element) {
+                    const yOffset = -140; // Covers both mobile (100px) and desktop (80px) sticky header + padding
+                    const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                    window.scrollTo({ top: y, behavior: 'smooth' });
+
+                    // Update active tab
+                    const matchedCat = categories.find(cat => getHashId(cat) === id);
+                    if (matchedCat) {
+                        setActiveCategory(matchedCat);
+                    }
+                }
+            };
+
+            // Try multiple times to ensure DOM is fully rendered
+            setTimeout(tryScroll, 300);
+            setTimeout(tryScroll, 700);
+            setTimeout(tryScroll, 1200);
+        }
+    }, [location]);
+
     useEffect(() => {
         let rafId = null;
         let scrolling = false;
@@ -103,12 +133,19 @@ function Products() {
         }
     };
 
+    // Improved hash ID: handles plurals (removes trailing 's') and case/spaces
+    const getHashId = (title) => {
+        return title.toLowerCase()
+            .replace(/\s+/g, '-')
+            .replace(/&/g, 'and')
+            .replace(/s$/g, ''); // e.g., "vehicles" → "vehicle", "systems" → "system"
+    };
+
     return (
         <div className="min-h-screen bg-gray-50">
 
             {/* Sticky Category Tabs */}
-            <div ref={stickyRef} className="sticky top-[100px] md:top-[80px] z-20 bg-white border-b border-gray-200"
->
+            <div ref={stickyRef} className="sticky top-[100px] md:top-[80px] z-20 bg-white border-b border-gray-200">
                 <div
                     ref={tabsContainerRef}
                     className="overflow-x-auto whitespace-nowrap scrollbar-hide px-3"
@@ -139,9 +176,10 @@ function Products() {
             <div className="max-w-7xl mx-auto px-3 py-8 pb-32">
                 {categories.map((cat) => {
                     const products = productsData[cat] || [];
+                    const hashId = getHashId(cat);
 
                     return (
-                        <section key={cat} className="mb-16">
+                        <section key={cat} id={hashId} className="mb-16">
                             <div
                                 ref={(el) => (categoryRefs.current[cat] = el)}
                                 className="flex items-center mb-6 px-2"
@@ -150,92 +188,103 @@ function Products() {
                                 <span className="text-lg md:text-xl text-red-700">{products.length} products</span>
                             </div>
 
-                            <Swiper
-                                modules={[Pagination]}
-                                pagination={{
-                                    clickable: true,
-                                    renderBullet: (index, className) => `<span class="${className}">${index + 1}</span>`,
-                                }}
-                                className="product-swiper"
-                            >
-                                {products.reduce((pages, product, idx) => {
-                                    if (idx % 10 === 0) pages.push([]);
-                                    pages[pages.length - 1].push(product);
-                                    return pages;
-                                }, []).map((page, pageIdx) => (
-                                    <SwiperSlide key={pageIdx}>
-                                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-                                            {page.map((product) => (
-                                                <Link
-                                                    to={`/products/${product.id}`}
-                                                    key={product.id}
-                                                    className="block"
-                                                >
-                                                    <motion.div
-                                                        initial={{ opacity: 0, y: 50 }}
-                                                        whileInView={{ opacity: 1, y: 0 }}
-                                                        viewport={{ once: true, margin: "-50px" }}
-                                                        transition={{ duration: 0.5, delay: page.indexOf(product) * 0.05 }}
-                                                        className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col group"
+                            {products.length > 0 ? (
+                                <Swiper
+                                    modules={[Pagination]}
+                                    pagination={{
+                                        clickable: true,
+                                        renderBullet: (index, className) => `<span class="${className}">${index + 1}</span>`,
+                                    }}
+                                    className="product-swiper"
+                                >
+                                    {products.reduce((pages, product, idx) => {
+                                        if (idx % 10 === 0) pages.push([]);
+                                        pages[pages.length - 1].push(product);
+                                        return pages;
+                                    }, []).map((page, pageIdx) => (
+                                        <SwiperSlide key={pageIdx}>
+                                            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                                                {page.map((product) => (
+                                                    <Link
+                                                        to={`/products/${product.id}`}
+                                                        key={product.id}
+                                                        className="block"
                                                     >
-                                                        <div className="aspect-square bg-gray-100 relative overflow-hidden">
-                                                            <img
-                                                                src={product.image || "https://via.placeholder.com/300"}
-                                                                alt={product.title}
-                                                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                                                                onError={(e) => e.target.src = "https://via.placeholder.com/300"}
-                                                            />
-                                                            <div className="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">
-                                                                CALL
-                                                            </div>
-                                                        </div>
-
-                                                        <div className="p-3 flex flex-col flex-grow">
-                                                            <h3 className="text-sm font-medium text-gray-800 line-clamp-2 mb-2">
-                                                                {product.title}
-                                                            </h3>
-
-                                                            {product.desc && (
-                                                                <p className="text-xs text-gray-500 line-clamp-2 mb-2">
-                                                                    {product.desc}
-                                                                </p>
-                                                            )}
-
-                                                            <div className="mb-2">
-                                                                <span className="text-lg font-bold text-red-600">
-                                                                    {typeof product.price === "number"
-                                                                        ? `Rs. ${product.price.toLocaleString("en-IN")}`
-                                                                        : product.price}
-                                                                </span>
-                                                                {product.originalPrice && (
-                                                                    <span className="text-xs text-gray-500 line-through ml-2">
-                                                                        Rs. {product.originalPrice.toLocaleString("en-IN")}
-                                                                    </span>
-                                                                )}
-                                                            </div>
-
-                                                            <div className="flex items-center justify-between text-xs text-gray-500 mb-2">
-                                                                <span>{product.sold || "50+"} sold</span>
-                                                                <ShoppingCart size={28}  onClick={(e) => handleAddToCart(product, e)}/>
-                                                            </div>
-
-                                                            <div className="flex items-center">
-                                                                <div className="flex text-black text-sm">
-                                                                    {"★★★★★".slice(0, Math.floor(product.rating || 4.6))}
-                                                                    {"☆☆☆☆☆".slice(0, 5 - Math.floor(product.rating || 4.6))}
+                                                        <motion.div
+                                                            initial={{ opacity: 0, y: 50 }}
+                                                            whileInView={{ opacity: 1, y: 0 }}
+                                                            viewport={{ once: true, margin: "-50px" }}
+                                                            transition={{ duration: 0.5, delay: page.indexOf(product) * 0.05 }}
+                                                            className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col group"
+                                                        >
+                                                            <div className="aspect-square bg-gray-100 relative overflow-hidden">
+                                                                <img
+                                                                    src={product.image || "https://via.placeholder.com/300"}
+                                                                    alt={product.title}
+                                                                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                                                    onError={(e) => e.target.src = "https://via.placeholder.com/300"}
+                                                                />
+                                                                <div className="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">
+                                                                    CALL
                                                                 </div>
-                                                                <span className="text-xs text-gray-500 ml-1">
-                                                                    ({product.reviews || "100+"})
-                                                                </span>
                                                             </div>
-                                                        </div>
-                                                    </motion.div>
-                                                </Link>
-                                            ))}
-                                        </div>
-                                    </SwiperSlide>
-                                ))}
-                            </Swiper>
+
+                                                            <div className="p-3 flex flex-col flex-grow">
+                                                                <h3 className="text-sm font-medium text-gray-800 line-clamp-2 mb-2">
+                                                                    {product.title}
+                                                                </h3>
+
+                                                                {product.desc && (
+                                                                    <p className="text-xs text-gray-500 line-clamp-2 mb-2">
+                                                                        {product.desc}
+                                                                    </p>
+                                                                )}
+
+                                                                <div className="mb-2">
+                                                                    <span className="text-lg font-bold text-red-600">
+                                                                        {typeof product.price === "number"
+                                                                            ? `Rs. ${product.price.toLocaleString("en-IN")}`
+                                                                            : product.price}
+                                                                    </span>
+                                                                    {product.originalPrice && (
+                                                                        <span className="text-xs text-gray-500 line-through ml-2">
+                                                                            Rs. {product.originalPrice.toLocaleString("en-IN")}
+                                                                        </span>
+                                                                    )}
+                                                                </div>
+
+                                                                <div className="flex items-center justify-between text-xs text-gray-500 mb-2">
+                                                                    <span>{product.sold || "50+"} sold</span>
+                                                                    <ShoppingCart 
+                                                                        size={28}  
+                                                                        className="cursor-pointer hover:text-orange-600 transition"
+                                                                        onClick={(e) => handleAddToCart(product, e)}
+                                                                    />
+                                                                </div>
+
+                                                                <div className="flex items-center">
+                                                                    <div className="flex text-black text-sm">
+                                                                        {"★★★★★".slice(0, Math.floor(product.rating || 4.6))}
+                                                                        {"☆☆☆☆☆".slice(0, 5 - Math.floor(product.rating || 4.6))}
+                                                                    </div>
+                                                                    <span className="text-xs text-gray-500 ml-1">
+                                                                        ({product.reviews || "100+"})
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </motion.div>
+                                                    </Link>
+                                                ))}
+                                            </div>
+                                        </SwiperSlide>
+                                    ))}
+                                </Swiper>
+                            ) : (
+                                <div className="text-center py-24 text-gray-500">
+                                    <p className="text-2xl font-medium mb-4">No products available yet</p>
+                                    <p className="text-lg">Coming soon!</p>
+                                </div>
+                            )}
                         </section>
                     );
                 })}
