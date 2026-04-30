@@ -13,7 +13,7 @@ import SEO from '../components/SEO';
 
 function Products() {
     const [activeCategory, setActiveCategory] = useState(categories[0]);
-    const siteUrl = "https://www.sssafetysolutions.com";
+    const siteUrl = "https://sssafetysolutions.pk";
     const productsUrl = `${siteUrl}/products`;
 
     const breadcrumbs = [

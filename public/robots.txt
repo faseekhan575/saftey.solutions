@@ -1,0 +1,14 @@
+# robots.txt for SS Safety Solutions
+# https://sssafetysolutions.pk
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://sssafetysolutions.pk/sitemap.xml
+
+# Disallow non-essential pages
+Disallow: /login
+Disallow: /signup
+Disallow: /checkout
+Disallow: /placeorder

@@ -4,7 +4,7 @@ import { Phone, Mail, MapPin, Clock, MessageCircle, Facebook, Instagram, Twitter
 import SEO from '../components/SEO';
 
 function Contact() {
-  const siteUrl = "https://www.sssafetysolutions.com";
+  const siteUrl = "https://sssafetysolutions.pk";
   const contactUrl = `${siteUrl}/contact`;
 
   const breadcrumbs = [

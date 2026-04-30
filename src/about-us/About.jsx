@@ -27,7 +27,7 @@ const Counter = ({ end, suffix = '', duration = 2.5 }) => {
 };
 
 function About() {
-  const siteUrl = "https://www.sssafetysolutions.com";
+  const siteUrl = "https://sssafetysolutions.pk";
   const aboutUrl = `${siteUrl}/about-us`;
 
   const breadcrumbs = [

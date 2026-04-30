@@ -14,7 +14,7 @@ import { toast } from 'react-hot-toast';
 import SEO from '../components/SEO';
 
 function Home() {
-  const siteUrl = "https://www.sssafetysolutions.com";
+  const siteUrl = "https://sssafetysolutions.pk";
   
   const breadcrumbs = [
     { name: "Home", url: siteUrl }

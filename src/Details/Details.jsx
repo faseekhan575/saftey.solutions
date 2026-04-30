@@ -325,7 +325,7 @@ const found = productsData[category]?.find(
   .slice(0, 15);
 
   // SEO
-  const siteUrl = "https://www.sssafetysolutions.com";
+  const siteUrl = "https://sssafetysolutions.pk";
   const productUrl = `${siteUrl}/products/${product.id}`;
   const productPrice = typeof product.price === "number" ? product.price : 0;
   const productPriceFormatted =
@@ -337,7 +337,11 @@ const found = productsData[category]?.find(
   const seoDescription =
     product.desc ||
     `Buy ${product.title} at SS Safety Solutions Pakistan. Premium quality ${currentCategory} with nationwide delivery. ${productPriceFormatted}. Call now!`;
-  const seoKeywords = `${product.title}, ${currentCategory}, safety equipment Pakistan, protective gear, ${product.title} price, buy ${product.title} online Pakistan`;
+  
+  const baseKeywords = `${product.title}, ${currentCategory}, safety equipment Pakistan, protective gear, ${product.title} price, buy ${product.title} online Pakistan`;
+  const seoKeywords = product.tags && product.tags.length > 0
+    ? `${baseKeywords}, ${product.tags.join(", ")}`
+    : baseKeywords;
 
   const breadcrumbs = [
     { name: "Home", url: siteUrl },

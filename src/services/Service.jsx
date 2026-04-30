@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 
 function Service() {
-  const siteUrl = "https://www.sssafetysolutions.com";
+  const siteUrl = "https://sssafetysolutions.pk";
   const servicesUrl = `${siteUrl}/services`;
 
   const breadcrumbs = [
