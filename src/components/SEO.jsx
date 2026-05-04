@@ -21,7 +21,8 @@ const SEO = ({
   productAvailability = 'instock',
   productBrand,
   productRating,
-  productReviewCount
+  productReviewCount,
+  noindex = false
 }) => {
   const fullTitle = title.includes('SS Safety Solutions') ? title : `${title} | SS Safety Solutions`;
 
@@ -40,19 +41,21 @@ const SEO = ({
   // Combine default schema with custom schema
   const combinedSchema = schema ?
     Array.isArray(schema) ? [...(breadcrumbSchema ? [breadcrumbSchema] : []), ...schema] :
-    [breadcrumbSchema, schema].filter(Boolean) :
+      [breadcrumbSchema, schema].filter(Boolean) :
     breadcrumbSchema ? [breadcrumbSchema] : [];
 
   return (
     <Helmet>
       {/* Standard Meta Tags */}
       <title>{fullTitle}</title>
+
+      {noindex && <meta name="robots" content="noindex, nofollow" />}
+      {!noindex && <meta name="robots" content="index, follow" />}
       <meta name="title" content={fullTitle} />
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
       <meta name="author" content="SS Safety Solutions" />
       <link rel="canonical" href={url} />
-
       {/* Open Graph Meta Tags */}
       <meta property="og:type" content={type} />
       <meta property="og:url" content={url} />

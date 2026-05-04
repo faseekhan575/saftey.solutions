@@ -15,7 +15,7 @@ import SEO from '../components/SEO';
 
 function Home() {
   const siteUrl = "https://sssafetysolutions.pk";
-  
+
   const breadcrumbs = [
     { name: "Home", url: siteUrl }
   ];
@@ -35,8 +35,8 @@ function Home() {
       }
     }
   };
-  
- const products = [
+
+  const products = [
     {
       id: 1,
       name: "Premium Safety Boots Pro-X",
@@ -203,8 +203,8 @@ function Home() {
       />
       <main>
         <section className="relative h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden ">
-          <img 
-            src="https://wallpapercave.com/wp/wp2592365.jpg" 
+          <img
+            src="https://wallpapercave.com/wp/wp2592365.jpg"
             alt="Fire Safety"
             className="absolute inset-0 w-full h-full object-cover -z-10"
           />
@@ -212,8 +212,8 @@ function Home() {
 
           <div className="max-w-4xl mx-auto">
             <div className="mb-8 opacity-0 animate-fadeIn">
-              <img 
-                src="https://png.pngtree.com/png-vector/20250112/ourmid/pngtree-bright-orange-flame-icon-illustration-with-vibrant-yellow-and-red-tones-png-image_15160948.png" 
+              <img
+                src="https://png.pngtree.com/png-vector/20250112/ourmid/pngtree-bright-orange-flame-icon-illustration-with-vibrant-yellow-and-red-tones-png-image_15160948.png"
                 alt="Flame Icon"
                 className="h-20 w-20 mx-auto mb-4"
               />
@@ -306,7 +306,7 @@ function Home() {
       </main>
 
       <section className="py-20 px-4 bg-gray-50">
-        <motion.h1 
+        <motion.h1
           initial={{ opacity: 0, y: -40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -395,28 +395,28 @@ function Home() {
                         {product.description}
                       </p>
 
-                   <div className="mb-6">
-  {typeof product.price === "number" ? (
-    <>
-      <span className="text-3xl font-extrabold text-red-700">
-        Rs.{product.price.toFixed()}
-      </span>
-      {product.oldPrice && (
-        <span className="text-lg text-gray-500 line-through ml-3">
-          Rs.{product.oldPrice.toFixed()}
-        </span>
-      )}
-    </>
-  ) : (
-    <span className="text-3xl font-extrabold text-red-700">
-      {product.price}
-    </span>
-  )}
-</div>
+                      <div className="mb-6">
+                        {typeof product.price === "number" ? (
+                          <>
+                            <span className="text-3xl font-extrabold text-red-700">
+                              Rs.{product.price.toFixed()}
+                            </span>
+                            {product.oldPrice && (
+                              <span className="text-lg text-gray-500 line-through ml-3">
+                                Rs.{product.oldPrice.toFixed()}
+                              </span>
+                            )}
+                          </>
+                        ) : (
+                          <span className="text-3xl font-extrabold text-red-700">
+                            {product.price}
+                          </span>
+                        )}
+                      </div>
 
 
                       <div className="flex items-center justify-center gap-3">
-                        <button 
+                        <button
                           className="inline-flex items-center gap-2 bg-red-700 text-white px-6 py-3 rounded-full font-semibold text-base hover:bg-red-800 transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
                           onClick={handleAddToCart}
                         >
@@ -424,7 +424,7 @@ function Home() {
                           Add to Cart
                         </button>
 
-                      
+
                       </div>
                     </div>
                   </div>
@@ -452,7 +452,7 @@ function Home() {
               <div className="flex justify-center lg:justify-end order-first lg:order-first">
                 <div className="relative group">
                   <div className="absolute -inset-4 md:-inset-6 bg-orange-400/20 rounded-full blur-3xl opacity-60 group-hover:opacity-90 transition duration-700"></div>
-                  
+
                   <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden shadow-2xl border-8 md:border-12 border-white">
                     <img
                       src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMHBhISBwgPFhUXFRUXExcSFhcVGBcXFxEWFhYXFRcYHSggGBolHxUWITEhJSkrMS4uFx8zODMtNygtLisBCgoKBQUFDgUFDisZExkrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIAOEA4QMBIgACEQEDEQH/xAAbAAEAAgMBAQAAAAAAAAAAAAAABQYCAwQBB//EADcQAQABAgIHBQUGBwAAAAAAAAABAgMEEQUSIUFRYXETMZGh0SIygbHhIzM0UqLBFEJDcrLw8f/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwD6IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAM7dqq7P2duZ6Rm6KdGXao+68ZgHIOydGXY/p+Ew57tiq195bqjrGzxBrAAAAAAAAAAAAAAAAAAAAAAB7bom5XEURnM9wPbVubtcRbpzlM4TRVNEZ3/anhuj1dOBwkYW1lHfvnj9HSDymmKYypjLo9AB5MZxtegODFaMpvbbcas8u74whcRYqw9zK7T9ei0tOKw8Ym1q3I6cp4wCsDZiLM4e7NNz/scWsAAAAAAAAAAAAAAAAAABMaEw2VM11R37I6b/8AeSHiM52LVZt9laimN0RAMwAAAAAAAR+l8N2uH1qY207fhv8AVBLZMZxtVa/b7K9VTwmY8wYAAAAAAAAAAAAAAAAAA24SNbFUZ/mp+a0KthqtXE0TO6qPmtIAAAAAAAACu6VjLH1Zcv8AGFiVzSlWtj68uUeEQDlAAAAAAAAAAAAAAAAAB4tOFu9vh6auMee9V0noXE6lU0Vz37aeu+ATQAAAAAAAMblWpRM1d0RnPwVa5X2lyZnfMz4yl9NYnVt6lE7Z7+iGAAAAAAAAAAAAAAAAAAAInKdkgCe0dj4xFOrcn2vnzh3qlE5TslJ4TS00RliIz5x3/HiCaGmziqL8fZXInlv8G4AGq7iKbMfa3Ijr6A2uTHY2MLRxq3R+88nHitL7MsNT8Z/aPVFV1TXVnXOc7wLlc3K5muc5nveAAAAAAAAAAAAAAAAAAAAAADO1ZqvT9lbmenqDW2U3qqI9m7VHSZdlvRFdXvzTHn8m+nQv5r/6fqCNqv11e9er8Za0tOheF/8AT9Wm5oiun3KqZ8gR423sNXZ+9tTHy8WoAAAAAAAAAAAAAAAAAAAABtw+GqxNWVqnrO6Pi68Bo2b+VV7OKd0b59ITduiLdGVFOUA4cLoqm3tve1Pl4b3fTTFMZUxl0egAAAAExnG1w4nRlF7bRGrPLu8HcArWKwdWGn26dnGO76OdbKo1oyqhD4/RernVho60+noCLAAAAAAAAAAAAAAAASei9H9plXfjZ/LHHnPJp0Xg/wCJu51x7Mec8E/EZRsB6AAAAAAAAAAACL0no/XzrsRt3xx5xzQy2oTS+D7OrXtxsn3o4TxBGgAAAAAAAAAAAMrVubtyKaI2zOTFK6DsZzNdUco/cEph7MWLMU0bmwAAAAAAAAAAAAAGNdEXKJiqNk97IBV8XYnDX5pn4c43NSb01Y17MVx3x39JQgAAAAAAAAAACzYG12OFpjLdt6ztlXMPR2l+mONUR5rVAAAAAAAAAAAAAAAAAMLtuLtuYq3xMKtVTq1TE7ti2K3pKjUx1fXPxiJBzAAAAAAAAAA34D8bR/dCzAAAAAAAAAAAAAAAAAAr+mPx09I+QA4gAAAAAf/Z"
@@ -474,13 +474,13 @@ function Home() {
               <div className="text-gray-700 space-y-8 order-last lg:order-last">
                 <div className="bg-white rounded-3xl p-8 md:p-10 lg:p-12 shadow-lg border border-gray-100">
                   <p className="text-lg md:text-xl leading-relaxed text-justify">
-                    At <span className="font-bold text-orange-600">S.S SAFETY SOLUTIONS</span>, we believe safety is the foundation of progress. 
-                    We are dedicated to providing <span className="font-semibold text-red-700">world-class, certified safety equipment</span> 
+                    At <span className="font-bold text-orange-600">S.S SAFETY SOLUTIONS</span>, we believe safety is the foundation of progress.
+                    We are dedicated to providing <span className="font-semibold text-red-700">world-class, certified safety equipment</span>
                     that protects lives and empowers industries, workplaces, and families across the nation.
                   </p>
-                  
+
                   <p className="text-lg md:text-xl leading-relaxed text-justify mt-6">
-                    Every product we offer is built on trust, innovation, and uncompromising quality. 
+                    Every product we offer is built on trust, innovation, and uncompromising quality.
                     Our commitment is simple: to deliver reliable protection you can count on, every single time.
                   </p>
 

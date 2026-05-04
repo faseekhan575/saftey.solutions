@@ -292,10 +292,17 @@ const found = productsData[category]?.find(
   }
 
   if (!product) {
-    return (
+  return (
+    <>
+      <SEO
+        noindex={true}
+      />
+
       <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
         <div className="text-center py-24">
-          <h1 className="text-4xl font-bold text-gray-800 mb-4">Product Not Found</h1>
+          <h1 className="text-4xl font-bold text-gray-800 mb-4">
+            Product Not Found
+          </h1>
           <p className="text-lg text-gray-600 mb-8">
             We couldn't find the product you're looking for.
           </p>
@@ -308,8 +315,9 @@ const found = productsData[category]?.find(
           </Link>
         </div>
       </div>
-    );
-  }
+    </>
+  );
+}
 
   const [quantity, setQuantity] = useState(1);
   const [showZoomModal, setShowZoomModal] = useState(false);
