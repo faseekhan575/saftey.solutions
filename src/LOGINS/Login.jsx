@@ -5,6 +5,7 @@ import auths from '../appwrite/appwrite';
 import { motion } from 'framer-motion';
 import { ArrowLeft, LogOut } from 'lucide-react';
 import toast from 'react-hot-toast';
+import SEO from '../components/SEO';
 
 
 function Login() {
@@ -59,6 +60,12 @@ function Login() {
 
   return (
     <>
+      <SEO
+        title="Login | SS Safety Solutions"
+        description="Sign in to your SS Safety Solutions account to manage orders and checkout faster."
+        url="https://sssafetysolutions.pk/login"
+        noindex
+      />
       <div className="min-h-screen flex items-center justify-center bg-gray-50 relative">
         
         {/* Back to Home - Top Left */}
@@ -102,7 +109,7 @@ function Login() {
               alt="Firefighter in action - Safety First"
               className="absolute inset-0 w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent" />
             
             <div className="absolute bottom-0 left-0 right-0 p-12 text-white">
               <motion.h1 className="text-5xl font-extrabold mb-4 drop-shadow-2xl">
@@ -157,7 +164,7 @@ function Login() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full py-5 bg-gradient-to-r from-red-700 to-orange-600 hover:from-red-800 hover:to-orange-700 text-white font-extrabold text-xl rounded-xl shadow-xl transition transform hover:scale-105 disabled:opacity-70"
+                    className="w-full py-5 bg-linear-to-r from-red-700 to-orange-600 hover:from-red-800 hover:to-orange-700 text-white font-extrabold text-xl rounded-xl shadow-xl transition transform hover:scale-105 disabled:opacity-70"
                 >
                   {loading ? "Logging in..." : "Log In"}
                 </button>

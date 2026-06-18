@@ -10,6 +10,7 @@ import "swiper/css/pagination";
 import { useCart } from '../context/CartContext';
 import toast from 'react-hot-toast';
 import SEO from '../components/SEO';
+import LazyImage from '../components/LazyImage';
 
 function Products() {
     const [activeCategory, setActiveCategory] = useState(categories[0]);
@@ -143,12 +144,11 @@ function Products() {
 
     /* ---------------- HASH SCROLL ---------------- */
     useEffect(() => {
-        scrollToCategory(searchParams.get("id"))
-
-        return () => {
-
+        const cat = searchParams.get("id");
+        if (cat) {
+            scrollToCategory(cat);
         }
-    }, [])
+    }, [searchParams]);
 
     // ── NEW: Highlight product when arrived via search hash (#product-id) ──
     useEffect(() => {
@@ -280,11 +280,10 @@ function Products() {
                                                             id={product.id}
                                                         >
                                                             <div className="aspect-square bg-gray-100 relative overflow-hidden">
-                                                                <img
+                                                                <LazyImage
                                                                     src={product.image || "https://via.placeholder.com/300"}
                                                                     alt={product.title}
                                                                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                                                                    loading="lazy"
                                                                 />
                                                                 <div className="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">
                                                                     CALL

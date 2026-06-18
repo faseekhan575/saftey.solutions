@@ -61,7 +61,8 @@ function Fotter() {
             <ul className="space-y-5">
               {[
                 { name: "Home", path: "/" },
-                { name: "aboutus", path: "/about-us" },
+                { name: "About Us", path: "/about-us" },
+                { name: "Services", path: "/services" },
                 { name: "Products", path: "/products" },
                 { name: "Contact", path: "/contact" },
               ].map((item) => (

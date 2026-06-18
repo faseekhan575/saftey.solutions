@@ -20,6 +20,7 @@ import { CartProvider } from './context/CartContext.jsx'   // ← New line
 import Checkout from './Checkout/Checkout.jsx'
 import Placeorder from './final-order/Placeorder.jsx'
 import { HelmetProvider } from 'react-helmet-async'
+import NotFound from './not-found/NotFound.jsx'
 
 const router = createBrowserRouter([
   {
@@ -33,7 +34,8 @@ const router = createBrowserRouter([
       { path: "/products", element: <Products/> },
       { path: "/products/:id", element: <ProductDetails /> },
       {path:"/checkout",element :<Checkout/>},
-      {path:"/placeorder",element :<Placeorder/>}
+      {path:"/placeorder",element :<Placeorder/>},
+      { path: "*", element: <NotFound /> }
 
     ]
   },

@@ -12,9 +12,14 @@ import {
   Package,
 } from "lucide-react";
 import toast from "react-hot-toast";
+import SEO from "../components/SEO";
 
 function Checkout() {
   const { cartItems, totalAmount } = useCart();
+  const siteUrl = "https://sssafetysolutions.pk";
+  const checkoutSeo = (title, description) => (
+    <SEO title={title} description={description} url={`${siteUrl}/checkout`} noindex />
+  );
 
   const [formData, setFormData] = useState({
     name: "",
@@ -121,8 +126,13 @@ function Checkout() {
   // ─────────────────────────────────────────────
   if (orderPlaced) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4 py-16">
-        <div className="bg-white rounded-3xl shadow-2xl max-w-2xl w-full p-10 text-center">
+      <>
+        {checkoutSeo(
+          "Order Received | SS Safety Solutions",
+          "Your order has been received by SS Safety Solutions. Our team will contact you shortly."
+        )}
+        <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4 py-16">
+          <div className="bg-white rounded-3xl shadow-2xl max-w-2xl w-full p-10 text-center">
           {/* Success Icon */}
           <div className="flex justify-center mb-6">
             <div className="w-24 h-24 bg-orange-100 rounded-full flex items-center justify-center">
@@ -150,7 +160,7 @@ function Checkout() {
                   key={item.id}
                   className="flex items-center gap-4 pb-3 border-b border-gray-200 last:border-0"
                 >
-                  <div className="w-14 h-14 bg-white rounded-xl border border-gray-200 flex-shrink-0 overflow-hidden">
+                  <div className="w-14 h-14 bg-white rounded-xl border border-gray-200 shrink-0 overflow-hidden">
                     {item.image && (
                       <img
                         src={item.image}
@@ -211,14 +221,15 @@ function Checkout() {
             </button>
           </a>
 
-          <Link
-            to="/products"
-            className="text-gray-500 hover:text-orange-600 font-medium transition text-sm underline"
-          >
-            ← Continue Shopping
-          </Link>
+            <Link
+              to="/products"
+              className="text-gray-500 hover:text-orange-600 font-medium transition text-sm underline"
+            >
+              ← Continue Shopping
+            </Link>
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 
@@ -227,15 +238,21 @@ function Checkout() {
   // ─────────────────────────────────────────────
   if (cartItems.length === 0) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
-        <div className="text-center">
-          <ShoppingCart size={80} className="text-gray-300 mx-auto mb-6" />
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Your cart is empty</h2>
-          <Link to="/products" className="text-orange-600 hover:text-orange-700 font-semibold">
-            Go back to shopping
-          </Link>
+      <>
+        {checkoutSeo(
+          "Checkout | SS Safety Solutions",
+          "Review your cart and complete checkout at SS Safety Solutions."
+        )}
+        <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
+          <div className="text-center">
+            <ShoppingCart size={80} className="text-gray-300 mx-auto mb-6" />
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">Your cart is empty</h2>
+            <Link to="/products" className="text-orange-600 hover:text-orange-700 font-semibold">
+              Go back to shopping
+            </Link>
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 
@@ -243,9 +260,14 @@ function Checkout() {
   // MAIN CHECKOUT FORM (unchanged)
   // ─────────────────────────────────────────────
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4">
-      <div className="max-w-7xl mx-auto">
-        <h1 className="text-4xl font-bold text-gray-900 text-center mb-12">Checkout</h1>
+    <>
+      {checkoutSeo(
+        "Checkout | SS Safety Solutions",
+        "Review your cart and complete checkout at SS Safety Solutions."
+      )}
+      <div className="min-h-screen bg-gray-50 py-12 px-4">
+        <div className="max-w-7xl mx-auto">
+          <h1 className="text-4xl font-bold text-gray-900 text-center mb-12">Checkout</h1>
 
         <div className="grid lg:grid-cols-3 gap-12">
           {/* Left Side - Form */}
@@ -479,7 +501,7 @@ function Checkout() {
                     key={item.id}
                     className="flex gap-4 pb-4 border-b border-gray-100 last:border-0"
                   >
-                    <div className="bg-gray-100 rounded-lg w-16 h-16 flex-shrink-0">
+                    <div className="bg-gray-100 rounded-lg w-16 h-16 shrink-0">
                       {item.image && (
                         <img
                           src={item.image}
@@ -528,8 +550,9 @@ function Checkout() {
             </div>
           </div>
         </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

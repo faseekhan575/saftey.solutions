@@ -13,6 +13,7 @@ import {
   Mail
 } from "lucide-react";
 import confetti from "canvas-confetti";
+import SEO from "../components/SEO";
 
 function Placeorder() {
   // Trigger confetti on load
@@ -114,8 +115,15 @@ function Placeorder() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-green-50 py-12 px-4">
-      <div className="max-w-4xl mx-auto">
+    <>
+      <SEO
+        title="Order Confirmation | SS Safety Solutions"
+        description="View your SS Safety Solutions order confirmation and receipt details."
+        url="https://sssafetysolutions.pk/placeorder"
+        noindex
+      />
+      <div className="min-h-screen bg-linear-to-br from-orange-50 via-white to-green-50 py-12 px-4">
+        <div className="max-w-4xl mx-auto">
         {/* Success Animation Card */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
@@ -124,7 +132,7 @@ function Placeorder() {
           className="bg-white rounded-3xl shadow-2xl overflow-hidden"
         >
           {/* Header with Checkmark */}
-          <div className="bg-gradient-to-r from-orange-600 to-orange-700 py-12 text-center">
+          <div className="bg-linear-to-r from-orange-600 to-orange-700 py-12 text-center">
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
@@ -144,7 +152,7 @@ function Placeorder() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="text-center bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-8 border border-green-200"
+              className="text-center bg-linear-to-r from-green-50 to-emerald-50 rounded-2xl p-8 border border-green-200"
             >
               <Truck size={64} className="text-green-600 mx-auto mb-4" />
               <h2 className="text-3xl font-bold text-gray-900 mb-3">
@@ -203,7 +211,7 @@ function Placeorder() {
             </motion.div>
 
             {/* Thank You Message */}
-            <div className="text-center bg-gradient-to-r from-orange-50 to-red-50 rounded-2xl p-8 border border-orange-200">
+            <div className="text-center bg-linear-to-r from-orange-50 to-red-50 rounded-2xl p-8 border border-orange-200">
               <h3 className="text-3xl font-bold text-gray-900 mb-4">
                 Thank You for Shopping with S.S-SAFETY SOLUTIONS!
               </h3>
@@ -238,6 +246,8 @@ function Placeorder() {
         </motion.div>
       </div>
 
+        </div>
+
       {/* Custom Styles for Blinking */}
       <style jsx>{`
         @keyframes pulse {
@@ -248,7 +258,7 @@ function Placeorder() {
           animation: pulse 2s infinite;
         }
       `}</style>
-    </div>
+    </>
   );
 }
 

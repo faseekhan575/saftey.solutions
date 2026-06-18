@@ -1,6 +1,6 @@
 // src/pages/ProductDetails.jsx
 import React, { useState, useRef, useEffect, useCallback } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import SEO from "../components/SEO";
 
@@ -187,7 +187,7 @@ const ZoomModal = ({ image, alt, onClose }) => {
           </button>
           <button
             onClick={handleReset}
-            className="bg-white/20 hover:bg-white/30 text-white text-sm font-medium px-3 py-1 rounded-full transition min-w-[56px] text-center"
+            className="bg-white/20 hover:bg-white/30 text-white text-sm font-medium px-3 py-1 rounded-full transition min-w-14 text-center"
             aria-label="Reset zoom"
           >
             {Math.round(scale * 100)}%
@@ -259,6 +259,7 @@ const ZoomModal = ({ image, alt, onClose }) => {
 
 const ProductDetails = () => {
  const { id } = useParams();
+ const navigate = useNavigate();
 // Normalize both sides to first-2-words slug for matching
 const normalize = (str) =>
   str?.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
@@ -322,6 +323,10 @@ const found = productsData[category]?.find(
   const [quantity, setQuantity] = useState(1);
   const [showZoomModal, setShowZoomModal] = useState(false);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [productId]);
+
   const isContactPrice =
     typeof product.price === "string" && product.price.toLowerCase().includes("contact");
 
@@ -354,6 +359,7 @@ const found = productsData[category]?.find(
   const breadcrumbs = [
     { name: "Home", url: siteUrl },
     { name: "Products", url: `${siteUrl}/products` },
+    { name: currentCategory, url: `${siteUrl}/products?id=${encodeURIComponent(currentCategory)}` },
     { name: product.title, url: productUrl },
   ];
 
@@ -411,13 +417,44 @@ const found = productsData[category]?.find(
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* ── Breadcrumb / Back ── */}
-        <div className="flex items-center gap-2 mb-8 text-sm text-gray-500">
+        <div className="flex flex-wrap items-center gap-3 mb-8 text-sm text-gray-500">
+          <button
+            type="button"
+            onClick={() => navigate(-1)}
+            className="inline-flex items-center gap-1.5 hover:text-orange-600 font-medium transition"
+          >
+            <ArrowLeft size={16} />
+            Back
+          </button>
+          <span className="text-gray-300 hidden sm:inline">|</span>
           <Link to="/products" className="inline-flex items-center gap-1.5 hover:text-orange-600 font-medium transition">
             <ArrowLeft size={16} />
             Products
           </Link>
-          <span>/</span>
+          <span className="text-gray-300">/</span>
+          <Link
+            to={`/products?id=${encodeURIComponent(currentCategory)}`}
+            className="hover:text-orange-600 font-medium transition"
+          >
+            {currentCategory}
+          </Link>
+          <span className="text-gray-300">/</span>
           <span className="text-gray-800 font-medium truncate max-w-xs">{product.title}</span>
+        </div>
+
+        <div className="flex flex-wrap gap-3 mb-8">
+          <Link
+            to={`/products?id=${encodeURIComponent(currentCategory)}`}
+            className="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-orange-50 px-4 py-2 text-sm font-semibold text-orange-700 hover:bg-orange-100 transition"
+          >
+            Browse {currentCategory}
+          </Link>
+          <Link
+            to="/products"
+            className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-semibold text-gray-700 hover:border-orange-200 hover:text-orange-700 transition"
+          >
+            All Products
+          </Link>
         </div>
 
         {/* ══════════════════════════════════════════════════════
@@ -431,7 +468,7 @@ const found = productsData[category]?.find(
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.55 }}
-              className="relative bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center min-h-[340px] lg:min-h-[560px]"
+              className="relative bg-linear-to-br from-gray-50 to-gray-100 flex items-center justify-center min-h-85 lg:min-h-140"
             >
               {/* In-Stock Badge */}
               <div className="absolute top-5 left-5 z-10 flex items-center gap-1.5 bg-green-50 border border-green-200 text-green-700 text-xs font-semibold px-3 py-1.5 rounded-full shadow-sm">
@@ -452,7 +489,7 @@ const found = productsData[category]?.find(
                 <img
                   src={product.image || "https://via.placeholder.com/800"}
                   alt={product.title}
-                  className="w-full max-h-[420px] object-contain drop-shadow-lg"
+                  className="w-full max-h-105 object-contain drop-shadow-lg"
                   onError={(e) => {
                     e.target.src = "https://via.placeholder.com/800?text=Image+Not+Found";
                   }}
@@ -555,12 +592,12 @@ const found = productsData[category]?.find(
                   whileTap={{ scale: 0.97 }}
                   whileHover={{ scale: 1.02 }}
                   onClick={handleAddToCart}
-                  className="relative overflow-hidden group bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold text-base py-4 rounded-2xl shadow-lg shadow-orange-200 transition-all duration-200 flex items-center justify-center gap-2.5"
+                  className="relative overflow-hidden group bg-linear-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold text-base py-4 rounded-2xl shadow-lg shadow-orange-200 transition-all duration-200 flex items-center justify-center gap-2.5"
                 >
                   <ShoppingCart size={20} />
                   <span>{isContactPrice ? "Buy Now" : "Add to Cart"}</span>
                   {/* shine sweep */}
-                  <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+                  <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-linear-to-r from-transparent via-white/20 to-transparent" />
                 </motion.button>
 
                 {/* WhatsApp / Call */}
@@ -570,11 +607,11 @@ const found = productsData[category]?.find(
                   href="https://wa.me/923347616779?text=Hi%20I%20am%20Mr.%20Sufyan%20from%20S.S%20Safety%20Solutions.%20How%20can%20I%20help%20you?"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="relative overflow-hidden group bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold text-base py-4 rounded-2xl shadow-lg shadow-green-200 transition-all duration-200 flex items-center justify-center gap-2.5"
+                  className="relative overflow-hidden group bg-linear-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold text-base py-4 rounded-2xl shadow-lg shadow-green-200 transition-all duration-200 flex items-center justify-center gap-2.5"
                 >
                   <MessageCircle size={20} />
                   <span>WhatsApp / Call</span>
-                  <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+                  <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-linear-to-r from-transparent via-white/20 to-transparent" />
                 </motion.a>
               </div>
 
@@ -626,7 +663,7 @@ const found = productsData[category]?.find(
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.22 }}
-            className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl shadow-md p-7 text-white"
+            className="bg-linear-to-br from-orange-500 to-orange-600 rounded-2xl shadow-md p-7 text-white"
           >
             <h2 className="text-lg font-bold mb-5 flex items-center gap-2">
               <CheckCircle size={20} />
@@ -711,7 +748,7 @@ const found = productsData[category]?.find(
                 768: { slidesPerView: 4, spaceBetween: 20 },
                 1024: { slidesPerView: 5, spaceBetween: 24 },
               }}
-              className="related-products-swiper !pb-14"
+              className="related-products-swiper pb-14!"
             >
               {relatedProducts.map((relProduct) => (
                 <SwiperSlide key={relProduct.id}>
@@ -729,7 +766,7 @@ const found = productsData[category]?.find(
                         />
                       </div>
 
-                      <div className="p-3 sm:p-4 flex flex-col flex-grow">
+                      <div className="p-3 sm:p-4 flex flex-col grow">
                         <h3 className="font-semibold text-gray-800 text-xs sm:text-sm line-clamp-2 mb-3 leading-snug">
                           {relProduct.title}
                         </h3>

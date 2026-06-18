@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import auths from '../appwrite/appwrite';
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react'; // For back icon
+import SEO from '../components/SEO';
 
 function Signup() {
   const { register, handleSubmit, formState: { errors }, watch } = useForm();
@@ -46,6 +47,12 @@ function Signup() {
 
   return (
     <>
+      <SEO
+        title="Sign Up | SS Safety Solutions"
+        description="Create an account with SS Safety Solutions to place orders and track your purchase history."
+        url="https://sssafetysolutions.pk/signup"
+        noindex
+      />
       <div className="min-h-screen flex items-center justify-center bg-gray-50 relative">
         {/* Back to Home Button - Top Left Corner */}
         <motion.div
@@ -72,7 +79,7 @@ function Signup() {
               alt="Firefighter in action - Safety First"
               className="absolute inset-0 w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent" />
             
             <div className="absolute bottom-0 left-0 right-0 p-12 text-white">
               <motion.h1 
@@ -178,7 +185,7 @@ function Signup() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full py-5 bg-gradient-to-r from-red-700 to-orange-600 hover:from-red-800 hover:to-orange-700 text-white font-extrabold text-xl rounded-xl shadow-xl transition transform hover:scale-105 disabled:opacity-70"
+                  className="w-full py-5 bg-linear-to-r from-red-700 to-orange-600 hover:from-red-800 hover:to-orange-700 text-white font-extrabold text-xl rounded-xl shadow-xl transition transform hover:scale-105 disabled:opacity-70"
                 >
                   {loading ? "Creating Account..." : "Sign Up"}
                 </button>

@@ -165,12 +165,11 @@ function CategoryCard({ item, index }) {
   );
 }
 
-/* ─── Product Slide Card ────────────────────────────────────────────────── */
 function ProductCard({ product, onAddToCart }) {
   return (
     <div className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 h-full flex flex-col border border-gray-100">
       {/* Image */}
-      <div className="relative h-64 overflow-hidden flex-shrink-0">
+      <Link to={`/products/${product.id}`} className="relative h-64 overflow-hidden flex-shrink-0 block">
         <img
           src={product.image}
           alt={product.name}
@@ -194,17 +193,19 @@ function ProductCard({ product, onAddToCart }) {
           <Star className="w-3.5 h-3.5 fill-yellow-500 text-yellow-500" />
           <span className="text-xs font-bold text-gray-800">{product.rating}</span>
         </div>
-      </div>
+      </Link>
 
       {/* Body */}
       <div className="p-6 flex flex-col flex-1 text-center">
-        <h3 className="text-lg font-bold text-red-700 mb-2 leading-snug">{product.name}</h3>
+        <Link to={`/products/${product.id}`} className="hover:text-red-800 transition-colors block mb-2">
+          <h3 className="text-lg font-bold text-red-700 leading-snug">{product.name}</h3>
+        </Link>
         <p className="text-gray-500 text-sm leading-relaxed mb-4 flex-1 line-clamp-3">{product.description}</p>
 
         <div className="mb-4">
           {typeof product.price === 'number' ? (
             <span className="text-2xl font-extrabold text-red-700">
-              Rs.{product.price.toFixed()}
+               Rs.{product.price.toFixed()}
             </span>
           ) : (
             <span className="text-xl font-bold text-red-700">{product.price}</span>
@@ -256,7 +257,7 @@ function Home() {
 
   const products = [
     {
-      id: 1,
+      id: 'safety-shoes-st001',
       name: 'Premium Safety Boots Pro-X',
       price: 'Call for Price',
       rating: 4.9,
@@ -265,7 +266,7 @@ function Home() {
       description: 'Steel-toe protection with anti-slip sole. EN ISO 20345 certified for ultimate comfort in heavy-duty environments.',
     },
     {
-      id: 2,
+      id: 'safety-helmet',
       name: 'Tactical Ballistic Helmet',
       price: 'Call for Price',
       rating: 4.8,
@@ -274,7 +275,7 @@ function Home() {
       description: 'NIJ Level IIIA protection. Lightweight, adjustable fit for security and tactical operations.',
     },
     {
-      id: 3,
+      id: 'bullet-proof-jacket',
       name: 'High-Visibility Safety Vest',
       price: 'Call for Price',
       rating: 4.7,
@@ -283,7 +284,7 @@ function Home() {
       description: 'ANSI Class 2 reflective vest. Breathable mesh for all-day comfort in road and construction zones.',
     },
     {
-      id: 4,
+      id: 'best-harness',
       name: 'Full-Body Fall Arrest Harness',
       price: 'Call for Price',
       rating: 5.0,
@@ -292,23 +293,14 @@ function Home() {
       description: 'OSHA compliant full-body harness with quick-connect buckles and padded support.',
     },
     {
-      id: 5,
+      id: 'leather-heat-resistance-hand-gloves',
       name: 'Fire-Resistant Gloves Pro',
       price: 'Call for Price',
       rating: 4.6,
       badge: 'LIMITED STOCK',
       image: 'https://cdn11.bigcommerce.com/s-tumf4kk1l4/images/stencil/original/l/apikrtmf9__92534.original.jpg',
       description: 'Heat-resistant up to 500°C. Dexterity and grip for firefighting and industrial use.',
-    },
-    {
-      id: 6,
-      name: 'Fire-Resistant Gloves Pro',
-      price: 'Call for Price',
-      rating: 4.6,
-      badge: 'LIMITED STOCK',
-      image: 'https://cdn11.bigcommerce.com/s-tumf4kk1l4/images/stencil/original/l/apikrtmf9__92534.original.jpg',
-      description: 'Heat-resistant up to 500°C. Dexterity and grip for firefighting and industrial use.',
-    },
+    }
   ];
 
   const categories = [
