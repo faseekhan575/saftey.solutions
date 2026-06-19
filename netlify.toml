@@ -49,7 +49,7 @@
   status = 200
 
 [[redirects]]
-  from = "/terms-and-conditions"
+  from = "/terms-conditions"
   to = "/index.html"
   status = 200
 
