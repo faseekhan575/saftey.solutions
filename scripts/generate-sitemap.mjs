@@ -17,6 +17,11 @@ const urlEntries = [
   { loc: 'https://sssafetysolutions.pk/services', changefreq: 'monthly', priority: '0.8' },
   { loc: 'https://sssafetysolutions.pk/contact', changefreq: 'monthly', priority: '0.7' },
   { loc: 'https://sssafetysolutions.pk/products', changefreq: 'weekly', priority: '0.9' },
+  { loc: 'https://sssafetysolutions.pk/privacy-policy', changefreq: 'monthly', priority: '0.5' },
+  { loc: 'https://sssafetysolutions.pk/terms-conditions', changefreq: 'monthly', priority: '0.5' },
+  { loc: 'https://sssafetysolutions.pk/faq', changefreq: 'monthly', priority: '0.6' },
+  { loc: 'https://sssafetysolutions.pk/return-policy', changefreq: 'monthly', priority: '0.5' },
+  { loc: 'https://sssafetysolutions.pk/refund-policy', changefreq: 'monthly', priority: '0.5' },
   ...uniqueProductIds.map((id) => ({
     loc: `https://sssafetysolutions.pk/products/${id}`,
     changefreq: 'monthly',

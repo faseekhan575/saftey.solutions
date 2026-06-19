@@ -21,6 +21,11 @@ import Checkout from './Checkout/Checkout.jsx'
 import Placeorder from './final-order/Placeorder.jsx'
 import { HelmetProvider } from 'react-helmet-async'
 import NotFound from './not-found/NotFound.jsx'
+import PrivacyPolicy from './privacy-policy/PrivacyPolicy.jsx'
+import TermsConditions from './terms-conditions/TermsConditions.jsx'
+import FAQ from './faq/FAQ.jsx'
+import ReturnPolicy from './return-policy/ReturnPolicy.jsx'
+import RefundPolicy from './refund-policy/RefundPolicy.jsx'
 
 const router = createBrowserRouter([
   {
@@ -35,6 +40,11 @@ const router = createBrowserRouter([
       { path: "/products/:id", element: <ProductDetails /> },
       {path:"/checkout",element :<Checkout/>},
       {path:"/placeorder",element :<Placeorder/>},
+      { path: "/privacy-policy", element: <PrivacyPolicy /> },
+      { path: "/terms-conditions", element: <TermsConditions /> },
+      { path: "/faq", element: <FAQ /> },
+      { path: "/return-policy", element: <ReturnPolicy /> },
+      { path: "/refund-policy", element: <RefundPolicy /> },
       { path: "*", element: <NotFound /> }
 
     ]
