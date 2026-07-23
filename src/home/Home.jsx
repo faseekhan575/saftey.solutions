@@ -344,11 +344,11 @@ function Home() {
   return (
     <>
       <SEO
-        title="SS Safety Solutions | Premium Safety Equipment & Protective Gear Pakistan"
-        description="Leading supplier of premium safety equipment, protective gear, fire fighting systems, and rescue equipment in Pakistan."
+        title="SS Safety Solutions | Safety Equipment Pakistan"
+        description="Leading supplier of premium safety equipment, PPE, fire fighting gear, and rescue equipment in Pakistan. Quality certified safety solutions."
         keywords="safety equipment Pakistan, protective gear, fire fighting equipment, rescue equipment, PPE, safety shoes, road safety, fire alarm systems, fall arrest systems, laboratory safety"
-        url={siteUrl}
-        image={`${siteUrl}/og-image.jpg`}
+        url="https://sssafetysolutions.pk/"
+        image="https://sssafetysolutions.pk/android-chrome-512x512.png"
         type="website"
         breadcrumbs={breadcrumbs}
         schema={[homeSchema]}
@@ -401,7 +401,7 @@ function Home() {
           </motion.div>
 
           {/* Headline with stagger */}
-          <motion.div variants={container} initial="hidden" animate="show" className="overflow-hidden mb-6">
+          <motion.h1 variants={container} initial="hidden" animate="show" className="overflow-hidden mb-6">
             {headline.map((line, i) => (
               <motion.div key={i} variants={word} className="overflow-hidden block">
                 <span
@@ -414,7 +414,7 @@ function Home() {
                 </span>
               </motion.div>
             ))}
-          </motion.div>
+          </motion.h1>
 
           {/* Tagline */}
           <motion.p

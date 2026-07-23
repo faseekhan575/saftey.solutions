@@ -56,6 +56,8 @@ const SEO = ({
       <meta name="keywords" content={keywords} />
       <meta name="author" content="SS Safety Solutions" />
       <link rel="canonical" href={url} />
+      <link rel="alternate" hreflang="en" href={url} />
+      <link rel="alternate" hreflang="x-default" href={url} />
       {/* Open Graph Meta Tags */}
       <meta property="og:type" content={type} />
       <meta property="og:url" content={url} />
