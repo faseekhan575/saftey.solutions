@@ -44,6 +44,10 @@ const SEO = ({
       [breadcrumbSchema, schema].filter(Boolean) :
     breadcrumbSchema ? [breadcrumbSchema] : [];
 
+  const canonicalUrl = url && url.endsWith('/') && url !== 'https://sssafetysolutions.pk/' 
+    ? url.slice(0, -1) 
+    : (url || 'https://sssafetysolutions.pk/');
+
   return (
     <Helmet>
       {/* Standard Meta Tags */}
@@ -55,12 +59,12 @@ const SEO = ({
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
       <meta name="author" content="SS Safety Solutions" />
-      <link rel="canonical" href={url} />
-      <link rel="alternate" hreflang="en" href={url} />
-      <link rel="alternate" hreflang="x-default" href={url} />
+      <link rel="canonical" href={canonicalUrl} />
+      <link rel="alternate" hreflang="en" href={canonicalUrl} />
+      <link rel="alternate" hreflang="x-default" href={canonicalUrl} />
       {/* Open Graph Meta Tags */}
       <meta property="og:type" content={type} />
-      <meta property="og:url" content={url} />
+      <meta property="og:url" content={canonicalUrl} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={image} />

@@ -296,6 +296,9 @@ const found = productsData[category]?.find(
   return (
     <>
       <SEO
+        title="Product Not Found"
+        description="The requested safety product could not be found. Explore our catalog of certified safety equipment in Pakistan."
+        url={`https://sssafetysolutions.pk/products/${productId || ''}`}
         noindex={true}
       />
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
-import { ArrowRight, ShoppingCart, Star, Shield, Award, Users, Zap } from 'lucide-react';
+import { ArrowRight, ShoppingCart, Star, Shield, Award, Users, Zap, Quote, CheckCircle2 } from 'lucide-react';
 import { motion, useScroll, useTransform, useInView, animate, useMotionValue, useSpring } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay, A11y } from 'swiper/modules';
@@ -543,70 +543,101 @@ function Home() {
         </div>
       </section>
 
-      {/* ── CEO MESSAGE ────────────────────────────────────────────────────── */}
-      <section className="py-28 px-4 bg-gradient-to-br from-gray-50 via-red-50/20 to-gray-50 relative overflow-hidden">
+      <section className="py-24 md:py-32 px-4 bg-gradient-to-b from-stone-50 via-white to-orange-50/30 relative overflow-hidden">
+        {/* Background ambient lighting */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-orange-100/60 blur-3xl" />
-          <div className="absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-red-100/50 blur-3xl" />
+          <div className="absolute top-10 right-10 w-[500px] h-[500px] rounded-full bg-gradient-to-br from-orange-200/40 via-red-100/30 to-transparent blur-3xl" />
+          <div className="absolute bottom-10 left-10 w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-red-200/30 via-amber-100/40 to-transparent blur-3xl" />
+          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle, #000 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
         </div>
 
         <div className="max-w-6xl mx-auto relative">
-          <FadeUp className="text-center mb-20">
-            <p className="text-orange-600 text-sm font-bold tracking-widest uppercase mb-3">Leadership</p>
-            <h2 className="text-4xl md:text-6xl font-black text-gray-900">
-              Message from the <span className="text-red-700">CEO</span>
+          <FadeUp className="text-center mb-16 md:mb-20">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest bg-orange-100 text-orange-700 border border-orange-200/80 shadow-sm mb-4">
+              <Award className="w-3.5 h-3.5 text-orange-600" />
+              Leadership &amp; Vision
+            </span>
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-gray-900 tracking-tight">
+              Message from <span className="bg-gradient-to-r from-red-700 via-orange-600 to-red-800 bg-clip-text text-transparent">Our team</span>
             </h2>
+            <p className="mt-4 text-gray-600 max-w-2xl mx-auto text-base md:text-lg">
+              Driving an enduring culture of workplace safety, certified protection, and human resource excellence across Pakistan.
+            </p>
           </FadeUp>
 
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Portrait */}
-            <FadeUp delay={0.1} className="flex justify-center lg:justify-end">
-              <div className="relative group">
-                {/* Glow ring */}
-                <div className="absolute -inset-6 rounded-full bg-gradient-to-tr from-orange-400/30 to-red-600/20 blur-2xl opacity-70 group-hover:opacity-100 transition-opacity duration-700" />
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+            {/* Executive Portrait Card (5 cols) */}
+            <FadeUp delay={0.1} className="lg:col-span-5 flex justify-center">
+              <div className="relative group w-full max-w-md">
+                {/* Multi-layer ambient backdrop glow */}
+                <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-red-600/20 via-orange-500/25 to-amber-400/20 blur-2xl opacity-75 group-hover:opacity-100 transition-opacity duration-700" />
 
-                {/* Photo circle */}
-                <div className="relative w-72 h-72 md:w-80 md:h-80 rounded-full overflow-hidden shadow-2xl border-4 border-white ring-4 ring-orange-200/60">
-                  <img
-                    src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMHBhISBwgPFhUXFRUXExcSFhcVGBcXFxEWFhYXFRcYHSggGBolHxUWITEhJSkrMS4uFx8zODMtNygtLisBCgoKBQUFDgUFDisZExkrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIAOEA4QMBIgACEQEDEQH/xAAbAAEAAgMBAQAAAAAAAAAAAAAABQYCAwQBB//EADcQAQABAgIHBQUGBwAAAAAAAAABAgMEEQUSIUFRYXETMZGh0SIygbHhIzM0UqLBFEJDcrLw8f/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwD6IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAM7dqq7P2duZ6Rm6KdGXao+68ZgHIOydGXY/p+Ew57tiq195bqjrGzxBrAAAAAAAAAAAAAAAAAAAAAAB7bom5XEURnM9wPbVubtcRbpzlM4TRVNEZ3/anhuj1dOBwkYW1lHfvnj9HSDymmKYypjLo9AB5MZxtegODFaMpvbbcas8u74whcRYqw9zK7T9ei0tOKw8Ym1q3I6cp4wCsDZiLM4e7NNz/scWsAAAAAAAAAAAAAAAAAABMaEw2VM11R37I6b/8AeSHiM52LVZt9laimN0RAMwAAAAAAAR+l8N2uH1qY207fhv8AVBLZMZxtVa/b7K9VTwmY8wYAAAAAAAAAAAAAAAAAA24SNbFUZ/mp+a0KthqtXE0TO6qPmtIAAAAAAAACu6VjLH1Zcv8AGFiVzSlWtj68uUeEQDlAAAAAAAAAAAAAAAAAB4tOFu9vh6auMee9V0noXE6lU0Vz37aeu+ATQAAAAAAAMblWpRM1d0RnPwVa5X2lyZnfMz4yl9NYnVt6lE7Z7+iGAAAAAAAAAAAAAAAAAAAInKdkgCe0dj4xFOrcn2vnzh3qlE5TslJ4TS00RliIz5x3/HiCaGmziqL8fZXInlv8G4AGq7iKbMfa3Ijr6A2uTHY2MLRxq3R+88nHitL7MsNT8Z/aPVFV1TXVnXOc7wLlc3K5muc5nveAAAAAAAAAAAAAAAAAAAAAADO1ZqvT9lbmenqDW2U3qqI9m7VHSZdlvRFdXvzTHn8m+nQv5r/6fqCNqv11e9er8Za0tOheF/8AT9Wm5oiun3KqZ8gR423sNXZ+9tTHy8WoAAAAAAAAAAAAAAAAAAAABtw+GqxNWVqnrO6Pi68Bo2b+VV7OKd0b59ITduiLdGVFOUA4cLoqm3tve1Pl4b3fTTFMZUxl0egAAAAExnG1w4nRlF7bRGrPLu8HcArWKwdWGn26dnGO76OdbKo1oyqhD4/RernVho60+noCLAAAAAAAAAAAAAAAASei9H9plXfjZ/LHHnPJp0Xg/wCJu51x7Mec8E/EZRsB6AAAAAAAAAAACL0no/XzrsRt3xx5xzQy2oTS+D7OrXtxsn3o4TxBGgAAAAAAAAAAAMrVubtyKaI2zOTFK6DsZzNdUco/cEph7MWLMU0bmwAAAAAAAAAAAAAGNdEXKJiqNk97IBV8XYnDX5pn4c43NSb01Y17MVx3x39JQgAAAAAAAAAACzYG12OFpjLdt6ztlXMPR2l+mONUR5rVAAAAAAAAAAAAAAAAAArGlPx09I+QA4gAAAAAf/Z"
-                    alt="Mr. Sufyain Ali – CEO, SS Safety Solutions"
-                    className="w-full h-full object-contain bg-black transition-transform duration-700 group-hover:scale-105"
-                  />
+                {/* Portrait card */}
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/90 bg-slate-900 ring-1 ring-black/5">
+                  <div className="relative aspect-[3/4] w-full overflow-hidden bg-slate-950">
+                    <img
+                      src="/images/leadership/arslan-nisar.jpg"
+                      alt="Mr. Arslan Nisar – General Manager & HR, SS Safety Solutions"
+                      className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    {/* Subtle gradient vignette at bottom */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
+
+                    {/* Quick identity card on bottom of photo */}
+                    <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-black/40 backdrop-blur-md border border-white/15 text-white">
+                      <p className="text-lg font-black tracking-wide text-white">Mr. ARSLAN NISAR</p>
+                      <p className="text-xs font-semibold text-orange-400 uppercase tracking-wider">General Manager &amp; Head of HR</p>
+                    </div>
+                  </div>
+
+                  {/* Floating Role Badge */}
+                  <motion.div
+                    animate={{ y: [0, -4, 0] }}
+                    transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+                    className="absolute -top-3 -right-3 bg-gradient-to-br from-orange-500 via-red-600 to-red-700 text-white px-5 py-2.5 rounded-full shadow-xl border-2 border-white font-black text-xs tracking-wider flex items-center gap-1.5"
+                  >
+                    <Shield className="w-3.5 h-3.5 fill-white/20" />
+                    <span>GM &amp; HR</span>
+                  </motion.div>
                 </div>
 
-                {/* CEO badge */}
-                <motion.div
-                  animate={{ rotate: [0, 2, -2, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                  className="absolute -top-3 -right-3 bg-gradient-to-br from-orange-500 to-red-700 text-white px-6 py-3 rounded-full shadow-xl border-4 border-white font-black text-sm tracking-widest"
-                >
-                  CEO
-                </motion.div>
+                
               </div>
             </FadeUp>
 
-            {/* Quote */}
-            <FadeUp delay={0.2}>
-              <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 md:p-10 shadow-xl border border-gray-100 relative">
-                {/* Quotation mark */}
-                <div className="text-8xl font-black text-red-100 leading-none absolute top-4 left-6 select-none" aria-hidden="true">"</div>
+            {/* Executive Message Card (7 cols) */}
+            <FadeUp delay={0.2} className="lg:col-span-7">
+              <div className="bg-white/90 backdrop-blur-md rounded-3xl p-8 md:p-12 shadow-xl border border-orange-100/80 relative">
+                {/* Decorative Quote Icon */}
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-500/10 to-red-500/10 border border-orange-200/50 flex items-center justify-center mb-6">
+                  <Quote className="w-7 h-7 text-red-700" />
+                </div>
 
-                <div className="relative">
-                  <p className="text-gray-700 text-lg md:text-xl leading-relaxed text-justify mb-6">
-                    At <span className="font-bold text-orange-600">S.S SAFETY SOLUTIONS</span>, we believe safety is the foundation of progress.
-                    We are dedicated to providing <span className="font-semibold text-red-700">world-class, certified safety equipment</span>{' '}
-                    that protects lives and empowers industries, workplaces, and families across the nation.
+                <div className="space-y-5 text-gray-700 text-base md:text-lg leading-relaxed text-justify">
+                  <p>
+                    At <strong className="text-orange-600 font-bold">S.S SAFETY SOLUTIONS</strong>, we firmly believe that true industrial leadership begins with an absolute commitment to human life and dignity. Every worker on a construction site, every firefighter on the front lines, and every technician in a manufacturing plant is someone's family member.
                   </p>
-                  <p className="text-gray-700 text-lg md:text-xl leading-relaxed text-justify">
-                    Every product we offer is built on trust, innovation, and uncompromising quality.
-                    Our commitment is simple: to deliver reliable protection you can count on, every single time.
+                  <p>
+                    As <strong className="text-gray-900 font-semibold">General Manager &amp; Head of HR</strong>, my mission is to align our operational excellence with our human-centric vision. We do not simply supply safety equipment; we deliver uncompromising peace of mind. Every product we provide—from certified safety footwear and fire suppression systems to tactical and rescue gear—meets rigorous international standards including ISO, CE, and OSHA.
+                  </p>
+                  <p className="text-gray-800 font-medium">
+                    "Our pledge is straightforward: empowering organizations with the most dependable protective solutions so every professional can work with confidence and return home safely."
                   </p>
                 </div>
 
-                <div className="mt-8 pt-6 border-t border-gray-100">
-                  <p className="text-xl md:text-2xl font-black text-red-800">— Mr. SUFYAIN ALI</p>
-                  <p className="text-orange-600 font-semibold mt-0.5">Founder & Chief Executive Officer</p>
-                  <p className="text-gray-400 text-sm mt-0.5">S.S SAFETY SOLUTIONS</p>
+              
+
+                {/* Executive Signature & Designation */}
+                <div className="pt-4 border-t border-gray-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                  <div>
+                    <h3 className="text-xl md:text-2xl font-black text-red-800 tracking-tight">
+                      Mr. ARSLAN NISAR
+                    </h3>
+                    <p className="text-orange-600 font-semibold text-sm mt-0.5">General Manager &amp; HR</p>
+                    <p className="text-gray-400 text-xs mt-0.5">S.S SAFETY SOLUTIONS • Lahore, Pakistan</p>
+                  </div>
+                 
                 </div>
               </div>
             </FadeUp>
