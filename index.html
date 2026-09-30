@@ -21,14 +21,11 @@
   <link rel="alternate" hreflang="en" href="https://sssafetysolutions.pk/" />
   <link rel="alternate" hreflang="x-default" href="https://sssafetysolutions.pk/" />
 
-  <!-- DNS Prefetch & Preconnect for Critical Origins -->
+  <!-- DNS Prefetch & Preconnect for Critical Origins (Max 2 origins) -->
   <link rel="preconnect" href="https://wallpapercave.com" crossorigin />
   <link rel="dns-prefetch" href="https://wallpapercave.com" />
   <link rel="preconnect" href="https://png.pngtree.com" crossorigin />
   <link rel="dns-prefetch" href="https://png.pngtree.com" />
-  <link rel="preconnect" href="https://connect.facebook.net" crossorigin />
-  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
-  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin />
 
   <!-- Preload Hero LCP Image -->
   <link rel="preload" as="image" href="https://wallpapercave.com/wp/wp2592365.jpg" fetchpriority="high" />
@@ -87,7 +84,7 @@
     ]
   }
   </script>
-  <!-- Optimized Third-Party Analytics & Ads (Loaded on idle/interaction to prevent main-thread blocking) -->
+  <!-- Optimized Third-Party Analytics & Ads (Loaded on user interaction or after main paint) -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -124,20 +121,11 @@
       document.head.appendChild(adsScript);
     }
 
-    if ('requestIdleCallback' in window) {
-      window.requestIdleCallback(function() {
-        setTimeout(loadThirdPartyScripts, 1200);
-      }, { timeout: 3000 });
-    } else {
-      window.addEventListener('load', function() {
-        setTimeout(loadThirdPartyScripts, 1500);
-      });
-    }
-
-    // Trigger immediately on first user interaction if before timer
-    ['touchstart', 'scroll', 'mousemove', 'keydown'].forEach(function(evt) {
+    // Trigger on first user interaction or fallback delay
+    ['touchstart', 'scroll', 'click', 'keydown'].forEach(function(evt) {
       window.addEventListener(evt, loadThirdPartyScripts, { once: true, passive: true });
     });
+    setTimeout(loadThirdPartyScripts, 7000);
   </script>
   <style>
     /* Prevent Flash of Unstyled Content (FOUC) by hiding SEO fallback tags for users and showing a premium loading screen */

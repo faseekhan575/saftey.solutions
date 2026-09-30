@@ -30,7 +30,7 @@ function Nav() {
     updateQuantity
   } = useCart();
 
-  // Lazy load search products on demand or idle
+  // Lazy load search products ONLY on user interaction (focus or typing)
   const loadSearchProducts = () => {
     if (allProducts.length > 0) return;
     import('../cat/ALL').then((mod) => {
@@ -45,16 +45,6 @@ function Nav() {
       }
     }).catch((err) => console.error("Search data load error:", err));
   };
-
-  useEffect(() => {
-    if ('requestIdleCallback' in window) {
-      const handle = window.requestIdleCallback(loadSearchProducts, { timeout: 4000 });
-      return () => window.cancelIdleCallback(handle);
-    } else {
-      const timer = setTimeout(loadSearchProducts, 2500);
-      return () => clearTimeout(timer);
-    }
-  }, []);
 
   const filteredProducts = allProducts
     .filter((p) => p.title.toLowerCase().includes(query.toLowerCase()))
