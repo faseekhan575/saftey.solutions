@@ -398,13 +398,13 @@ function Home() {
         schema={[homeSchema, faqSchema]}
       />
 
-      {/* Hero Section */}
+      {}
       <section
         ref={heroRef}
         className="relative h-screen min-h-[640px] flex flex-col items-center justify-center text-center px-6 overflow-hidden"
         aria-label="Hero"
       >
-        {/* Background Parallax */}
+        {}
         <motion.div
           className="absolute inset-0 -z-10"
           style={{ scale: heroScale, y: heroY }}
@@ -417,19 +417,19 @@ function Home() {
           />
         </motion.div>
 
-        {/* Gradient Overlay */}
+        {}
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/75 via-black/55 to-black/85" />
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-red-950/40 via-transparent to-orange-950/30" />
 
-        {/* Floating Particles */}
+        {}
         <Particles />
 
-        {/* Hero Content */}
+        {}
         <motion.div
           className="relative z-10 max-w-5xl mx-auto"
           style={{ opacity: heroOpacity }}
         >
-          {/* Flame Icon Badge */}
+          {}
           <motion.div
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}

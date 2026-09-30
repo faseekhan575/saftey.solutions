@@ -193,7 +193,7 @@ function Fotter() {
           </div>
         </div>
 
-        {/* Bottom Bar */}
+        {}
         <div className="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-2 text-center md:text-left">
           <p className="text-gray-400 text-sm">
             © {new Date().getFullYear()} SS Safety Solutions. All rights reserved.
