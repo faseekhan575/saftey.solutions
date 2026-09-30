@@ -1,56 +1,65 @@
-import { StrictMode } from 'react'
+import { StrictMode, lazy, Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './App.jsx'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Layout from './layout/Layout.jsx'
 import Home from './home/Home.jsx'
-import About from './about-us/About.jsx'
-import Service from './services/Service.jsx'
-import Contact from './contact-us/Contact.jsx'
-import Signup from './LOGINS/Signup.jsx'
-import Login from './LOGINS/Login.jsx'
 import { Toaster } from 'react-hot-toast'
-import Products from './products/Products.jsx'
-import ProductDetails from './Details/Details.jsx'
-
-
-// ← ADD THIS IMPORT (Step 1 done already?)
-import { CartProvider } from './context/CartContext.jsx'   // ← New line
-import Checkout from './Checkout/Checkout.jsx'
-import Placeorder from './final-order/Placeorder.jsx'
+import { CartProvider } from './context/CartContext.jsx'
 import { HelmetProvider } from 'react-helmet-async'
-import NotFound from './not-found/NotFound.jsx'
-import PrivacyPolicy from './privacy-policy/PrivacyPolicy.jsx'
-import TermsConditions from './terms-conditions/TermsConditions.jsx'
-import FAQ from './faq/FAQ.jsx'
-import ReturnPolicy from './return-policy/ReturnPolicy.jsx'
-import RefundPolicy from './refund-policy/RefundPolicy.jsx'
+
+
+const About = lazy(() => import('./about-us/About.jsx'))
+const Service = lazy(() => import('./services/Service.jsx'))
+const Contact = lazy(() => import('./contact-us/Contact.jsx'))
+const Products = lazy(() => import('./products/Products.jsx'))
+const ProductDetails = lazy(() => import('./Details/Details.jsx'))
+const Checkout = lazy(() => import('./Checkout/Checkout.jsx'))
+const Placeorder = lazy(() => import('./final-order/Placeorder.jsx'))
+const PrivacyPolicy = lazy(() => import('./privacy-policy/PrivacyPolicy.jsx'))
+const TermsConditions = lazy(() => import('./terms-conditions/TermsConditions.jsx'))
+const FAQ = lazy(() => import('./faq/FAQ.jsx'))
+const ReturnPolicy = lazy(() => import('./return-policy/ReturnPolicy.jsx'))
+const RefundPolicy = lazy(() => import('./refund-policy/RefundPolicy.jsx'))
+const NotFound = lazy(() => import('./not-found/NotFound.jsx'))
+const Signup = lazy(() => import('./LOGINS/Signup.jsx'))
+const Login = lazy(() => import('./LOGINS/Login.jsx'))
+
+const PageLoader = () => (
+  <div className="min-h-[50vh] flex items-center justify-center">
+    <div className="w-10 h-10 border-3 border-orange-600/20 border-t-orange-600 rounded-full animate-spin" />
+  </div>
+)
+
+const withSuspense = (Component) => (
+  <Suspense fallback={<PageLoader />}>
+    <Component />
+  </Suspense>
+)
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout/>,
+    element: <Layout />,
     children: [
-      { path: "/", element: <Home/> },
-      { path: "/about-us", element: <About/> },
-      { path: "/services", element: <Service/> },
-      { path: "/contact", element: <Contact/> },
-      { path: "/products", element: <Products/> },
-      { path: "/products/:id", element: <ProductDetails /> },
-      {path:"/checkout",element :<Checkout/>},
-      {path:"/placeorder",element :<Placeorder/>},
-      { path: "/privacy-policy", element: <PrivacyPolicy /> },
-      { path: "/terms-conditions", element: <TermsConditions /> },
-      { path: "/faq", element: <FAQ /> },
-      { path: "/return-policy", element: <ReturnPolicy /> },
-      { path: "/refund-policy", element: <RefundPolicy /> },
-      { path: "*", element: <NotFound /> }
-
+      { path: "/", element: <Home /> },
+      { path: "/about-us", element: withSuspense(About) },
+      { path: "/services", element: withSuspense(Service) },
+      { path: "/contact", element: withSuspense(Contact) },
+      { path: "/products", element: withSuspense(Products) },
+      { path: "/products/:id", element: withSuspense(ProductDetails) },
+      { path: "/checkout", element: withSuspense(Checkout) },
+      { path: "/placeorder", element: withSuspense(Placeorder) },
+      { path: "/privacy-policy", element: withSuspense(PrivacyPolicy) },
+      { path: "/terms-conditions", element: withSuspense(TermsConditions) },
+      { path: "/faq", element: withSuspense(FAQ) },
+      { path: "/return-policy", element: withSuspense(ReturnPolicy) },
+      { path: "/refund-policy", element: withSuspense(RefundPolicy) },
+      { path: "*", element: withSuspense(NotFound) }
     ]
   },
-  { path: "/signup", element: <Signup/> },
-  { path: "/login", element: <Login/> }
+  { path: "/signup", element: withSuspense(Signup) },
+  { path: "/login", element: withSuspense(Login) }
 ])
 
 createRoot(document.getElementById('root')).render(

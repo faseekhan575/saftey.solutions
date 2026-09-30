@@ -91,7 +91,7 @@ function Products() {
         return () => observer.disconnect();
     }, []);
 
-    /* ---------------- CENTER ACTIVE TAB ---------------- */
+    
     useEffect(() => {
         const tabEl = tabRefs.current[activeCategory];
         if (tabEl && tabsContainerRef.current) {
@@ -103,7 +103,7 @@ function Products() {
         }
     }, [activeCategory]);
 
-    /* ---------------- TAB CLICK SCROLL ---------------- */
+    
     const scrollToCategory = (cat) => {
         window.scrollTo(0,0)
         console.log(cat);
@@ -134,7 +134,7 @@ function Products() {
         }, 500);
     };
 
-    /* ---------------- HASH ID ---------------- */
+    
     const getHashId = (title) =>
         title
             .toLowerCase()
@@ -171,7 +171,7 @@ function Products() {
             'shadow-lg'
         );
 
-        // Remove highlight after 5 seconds
+        
         const timer = setTimeout(() => {
             element.classList.remove(
                 'border-orange-600',
@@ -196,7 +196,7 @@ function Products() {
                 breadcrumbs={breadcrumbs}
                 schema={[productsSchema]}
             />
-            {/* Sticky Category Tabs */}
+            {}
             <div
                 ref={stickyRef}
                 className="sticky top-[100px] md:top-[80px] z-20 bg-white border-b border-gray-200"
@@ -227,7 +227,7 @@ function Products() {
                 </div>
             </div>
 
-            {/* Products Sections */}
+            {}
             <div className="max-w-7xl mx-auto px-3 py-8 pb-32">
                 {categories.map((cat) => {
                     const products = productsData[cat] || [];

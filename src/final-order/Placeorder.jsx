@@ -16,7 +16,7 @@ import confetti from "canvas-confetti";
 import SEO from "../components/SEO";
 
 function Placeorder() {
-  // Trigger confetti on load
+  
   useEffect(() => {
     confetti({
       particleCount: 150,
@@ -30,7 +30,7 @@ function Placeorder() {
     });
   }, []);
 
-  // Mock order data (in real app, this would come from context or props)
+  
   const orderData = {
     orderId: "SS" + Math.floor(Math.random() * 900000 + 100000),
     date: "January 07, 2026",
@@ -51,7 +51,7 @@ function Placeorder() {
   const generatePDF = () => {
     const doc = new jsPDF();
 
-    // Header
+    
     doc.setFontSize(24);
     doc.setTextColor(249, 115, 22);
     doc.text("S.S-SAFETY SOLUTIONS", 105, 20, { align: "center" });
@@ -59,14 +59,14 @@ function Placeorder() {
     doc.setTextColor(0);
     doc.text("Order Receipt", 105, 30, { align: "center" });
 
-    // Order Info
+    
     doc.setFontSize(12);
     doc.setTextColor(100);
     doc.text(`Order ID: ${orderData.orderId}`, 20, 50);
     doc.text(`Order Date: ${orderData.date}`, 20, 58);
     doc.text(`Estimated Delivery: January 10-11, 2026`, 20, 66);
 
-    // Customer Details
+    
     doc.setFontSize(14);
     doc.setTextColor(0);
     doc.text("Customer Details", 20, 80);
@@ -77,7 +77,7 @@ function Placeorder() {
     doc.text(`Phone: ${orderData.customer.phone}`, 20, 106);
     doc.text(`Address: ${orderData.customer.address}`, 20, 114);
 
-    // Items Table
+    
     doc.setFontSize(14);
     doc.setTextColor(0);
     doc.text("Order Items", 20, 130);
@@ -99,18 +99,18 @@ function Placeorder() {
       y += 40;
     });
 
-    // Total
+    
     doc.setFontSize(16);
     doc.setTextColor(249, 115, 22);
     doc.text(`Grand Total: Rs. ${orderData.total.toLocaleString("en-IN")}`, 105, y + 20, { align: "center" });
 
-    // Footer
+    
     doc.setFontSize(12);
     doc.setTextColor(100);
     doc.text("Thank you for choosing S.S-SAFETY SOLUTIONS!", 105, y + 40, { align: "center" });
     doc.text("For any queries, contact us at +92 300 1234567", 105, y + 48, { align: "center" });
 
-    // Save PDF
+    
     doc.save(`SSSafety_Order_${orderData.orderId}.pdf`);
   };
 
@@ -124,14 +124,14 @@ function Placeorder() {
       />
       <div className="min-h-screen bg-linear-to-br from-orange-50 via-white to-green-50 py-12 px-4">
         <div className="max-w-4xl mx-auto">
-        {/* Success Animation Card */}
+        {}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="bg-white rounded-3xl shadow-2xl overflow-hidden"
         >
-          {/* Header with Checkmark */}
+          {}
           <div className="bg-linear-to-r from-orange-600 to-orange-700 py-12 text-center">
             <motion.div
               initial={{ scale: 0 }}
@@ -145,9 +145,9 @@ function Placeorder() {
             <p className="text-xl text-orange-100 mt-4">Order ID: {orderData.orderId}</p>
           </div>
 
-          {/* Main Content */}
+          {}
           <div className="p-10 lg:p-16 space-y-10">
-            {/* Dispatch Message */}
+            {}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -166,7 +166,7 @@ function Placeorder() {
               </p>
             </motion.div>
 
-            {/* Customer & Delivery Info */}
+            {}
             <div className="grid md:grid-cols-2 gap-8">
               <div className="bg-gray-50 rounded-2xl p-6">
                 <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3">
@@ -191,7 +191,7 @@ function Placeorder() {
               </div>
             </div>
 
-            {/* Blinking Download Receipt Button */}
+            {}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -210,7 +210,7 @@ function Placeorder() {
               </p>
             </motion.div>
 
-            {/* Thank You Message */}
+            {}
             <div className="text-center bg-linear-to-r from-orange-50 to-red-50 rounded-2xl p-8 border border-orange-200">
               <h3 className="text-3xl font-bold text-gray-900 mb-4">
                 Thank You for Shopping with S.S-SAFETY SOLUTIONS!
@@ -233,7 +233,7 @@ function Placeorder() {
               </div>
             </div>
 
-            {/* Continue Shopping */}
+            {}
             <div className="text-center">
               <Link
                 to="/products"
@@ -248,7 +248,7 @@ function Placeorder() {
 
         </div>
 
-      {/* Custom Styles for Blinking */}
+      {}
       <style jsx>{`
         @keyframes pulse {
           0%, 100% { opacity: 1; }

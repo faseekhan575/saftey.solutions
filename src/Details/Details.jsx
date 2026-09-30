@@ -1,4 +1,4 @@
-// src/pages/ProductDetails.jsx
+
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -29,7 +29,7 @@ import "swiper/css/pagination";
 import { useCart } from "../context/CartContext";
 import toast from "react-hot-toast";
 
-// ─── Interactive Zoom Modal ───────────────────────────────────────────────────
+
 const ZoomModal = ({ image, alt, onClose }) => {
   const [scale, setScale] = useState(1);
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -255,12 +255,12 @@ const ZoomModal = ({ image, alt, onClose }) => {
     </div>
   );
 };
-// ─────────────────────────────────────────────────────────────────────────────
+
 
 const ProductDetails = () => {
  const { id } = useParams();
  const navigate = useNavigate();
-// Normalize both sides to first-2-words slug for matching
+
 const normalize = (str) =>
   str?.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 const productId = id;
@@ -340,7 +340,7 @@ const found = productsData[category]?.find(
   .filter((p) => p?.id && String(p.id) !== String(productId))
   .slice(0, 15);
 
-  // SEO
+  
   const siteUrl = "https://sssafetysolutions.pk";
   const productUrl = `${siteUrl}/products/${product.id}`;
   const productPrice = typeof product.price === "number" ? product.price : 0;
@@ -451,7 +451,7 @@ const found = productsData[category]?.find(
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* ── Breadcrumb / Back ── */}
+        {}
         <div className="flex flex-wrap items-center gap-3 mb-8 text-sm text-gray-500">
           <button
             type="button"
@@ -492,26 +492,26 @@ const found = productsData[category]?.find(
           </Link>
         </div>
 
-        {/* ══════════════════════════════════════════════════════
-            MAIN PRODUCT CARD
-        ══════════════════════════════════════════════════════ */}
+        {
+
+}
         <div className="bg-white rounded-3xl shadow-xl overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
 
-            {/* ── LEFT: Image Panel ── */}
+            {}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.55 }}
               className="relative bg-linear-to-br from-gray-50 to-gray-100 flex items-center justify-center min-h-85 lg:min-h-140"
             >
-              {/* In-Stock Badge */}
+              {}
               <div className="absolute top-5 left-5 z-10 flex items-center gap-1.5 bg-green-50 border border-green-200 text-green-700 text-xs font-semibold px-3 py-1.5 rounded-full shadow-sm">
                 <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
                 In Stock
               </div>
 
-              {/* Zoom button */}
+              {}
               <button
                 onClick={() => setShowZoomModal(true)}
                 className="absolute top-5 right-5 z-10 bg-white hover:bg-orange-50 border border-gray-200 hover:border-orange-300 rounded-full p-2.5 shadow-md transition-all duration-200 hover:scale-110 group"
@@ -532,7 +532,7 @@ const found = productsData[category]?.find(
               </div>
             </motion.div>
 
-            {/* ── RIGHT: Info Panel ── */}
+            {}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -540,19 +540,19 @@ const found = productsData[category]?.find(
               className="flex flex-col p-7 sm:p-10 lg:p-12 gap-6"
             >
 
-              {/* Category pill */}
+              {}
               <div>
                 <span className="inline-block bg-orange-50 text-orange-600 text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full border border-orange-100 mb-3">
                   {currentCategory}
                 </span>
 
-                {/* Title */}
+                {}
                 <h1 className="text-2xl sm:text-3xl lg:text-[2rem] font-extrabold text-gray-900 leading-tight tracking-tight">
                   {product.title}
                 </h1>
               </div>
 
-              {/* Rating row */}
+              {}
               <div className="flex flex-wrap items-center gap-4">
                 <div className="flex items-center gap-1.5 bg-yellow-50 px-3 py-1.5 rounded-lg border border-yellow-100">
                   <div className="flex text-yellow-500">
@@ -576,7 +576,7 @@ const found = productsData[category]?.find(
                 </span>
               </div>
 
-              {/* ── Price ── */}
+              {}
               <div className="flex items-end gap-4 py-3 border-y border-gray-100">
                 {isContactPrice ? (
                   <p className="text-3xl font-extrabold text-orange-600 tracking-tight">
@@ -596,7 +596,7 @@ const found = productsData[category]?.find(
                 )}
               </div>
 
-              {/* ── Quantity ── */}
+              {}
               <div className="flex items-center gap-5">
                 <span className="text-sm font-semibold text-gray-600 uppercase tracking-wide">Qty</span>
                 <div className="flex items-center border-2 border-gray-200 hover:border-orange-300 rounded-xl overflow-hidden transition-colors">
@@ -620,9 +620,9 @@ const found = productsData[category]?.find(
                 </div>
               </div>
 
-              {/* ══ CTA BUTTONS ══ */}
+              {}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {/* Add to Cart */}
+                {}
                 <motion.button
                   whileTap={{ scale: 0.97 }}
                   whileHover={{ scale: 1.02 }}
@@ -631,11 +631,11 @@ const found = productsData[category]?.find(
                 >
                   <ShoppingCart size={20} />
                   <span>{isContactPrice ? "Buy Now" : "Add to Cart"}</span>
-                  {/* shine sweep */}
+                  {}
                   <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-linear-to-r from-transparent via-white/20 to-transparent" />
                 </motion.button>
 
-                {/* WhatsApp / Call */}
+                {}
                 <motion.a
                   whileTap={{ scale: 0.97 }}
                   whileHover={{ scale: 1.02 }}
@@ -650,7 +650,7 @@ const found = productsData[category]?.find(
                 </motion.a>
               </div>
 
-              {/* ── Trust Badges ── */}
+              {}
               <div className="grid grid-cols-3 gap-3 pt-2">
                 {[
                   { icon: <Truck size={20} />, label: "Nationwide Delivery" },
@@ -671,12 +671,12 @@ const found = productsData[category]?.find(
           </div>
         </div>
 
-        {/* ══════════════════════════════════════════════════════
-            DESCRIPTION + TAGS — BELOW THE MAIN CARD
-        ══════════════════════════════════════════════════════ */}
+        {
+
+}
         <div className="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-6">
 
-          {/* ── Description (2/3 width) ── */}
+          {}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -693,7 +693,7 @@ const found = productsData[category]?.find(
             </p>
           </motion.div>
 
-          {/* ── Quick Highlights (1/3 width) ── */}
+          {}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -721,7 +721,7 @@ const found = productsData[category]?.find(
           </motion.div>
         </div>
 
-        {/* ── Tags Section ── */}
+        {}
         {product.tags && product.tags.length > 0 && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -749,7 +749,7 @@ const found = productsData[category]?.find(
           </motion.div>
         )}
 
-        {/* ── Technical Specifications ── */}
+        {}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -788,7 +788,7 @@ const found = productsData[category]?.find(
           </div>
         </motion.div>
 
-        {/* ── Frequently Asked Questions ── */}
+        {}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -814,7 +814,7 @@ const found = productsData[category]?.find(
           </div>
         </motion.div>
 
-        {/* ── Popular Safety Searches in Pakistan ── */}
+        {}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -846,9 +846,9 @@ const found = productsData[category]?.find(
           </div>
         </motion.div>
 
-        {/* ══════════════════════════════════════════════════════
-            ZOOM MODAL
-        ══════════════════════════════════════════════════════ */}
+        {
+
+}
         {showZoomModal && (
           <ZoomModal
             image={product.image}
@@ -857,9 +857,9 @@ const found = productsData[category]?.find(
           />
         )}
 
-        {/* ══════════════════════════════════════════════════════
-            RELATED PRODUCTS
-        ══════════════════════════════════════════════════════ */}
+        {
+
+}
         {relatedProducts.length > 0 && (
           <div className="mt-16 lg:mt-20">
             <div className="flex items-center gap-3 mb-8">

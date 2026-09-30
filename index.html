@@ -21,6 +21,18 @@
   <link rel="alternate" hreflang="en" href="https://sssafetysolutions.pk/" />
   <link rel="alternate" hreflang="x-default" href="https://sssafetysolutions.pk/" />
 
+  <!-- DNS Prefetch & Preconnect for Critical Origins -->
+  <link rel="preconnect" href="https://wallpapercave.com" crossorigin />
+  <link rel="dns-prefetch" href="https://wallpapercave.com" />
+  <link rel="preconnect" href="https://png.pngtree.com" crossorigin />
+  <link rel="dns-prefetch" href="https://png.pngtree.com" />
+  <link rel="preconnect" href="https://connect.facebook.net" crossorigin />
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin />
+
+  <!-- Preload Hero LCP Image -->
+  <link rel="preload" as="image" href="https://wallpapercave.com/wp/wp2592365.jpg" fetchpriority="high" />
+
   <!-- Favicons -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="shortcut icon" href="/favicon.ico" />
@@ -75,73 +87,58 @@
     ]
   }
   </script>
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1053065860546812');
-fbq('track', 'PageView');
-</script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "@id": "https://sssafetysolutions.pk/#localbusiness",
-    "name": "SS Safety Solutions",
-    "url": "https://sssafetysolutions.pk/",
-    "telephone": "+92-334-761-6779",
-    "priceRange": "$$",
-    "image": "https://sssafetysolutions.pk/android-chrome-512x512.png",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "47 Brandreth Road, near UBL Bank",
-      "addressLocality": "Lahore",
-      "addressCountry": "PK"
-    },
-    "sameAs": [
-      "https://www.facebook.com/share/1FPMKrQodA/",
-      "https://www.instagram.com/sssafetysolutions",
-      "https://youtube.com/@sssafetysolutions5081",
-      "https://x.com/sssafetypk",
-      "https://www.linkedin.com/company/ss-safety-solutions"
-    ]
-  }
-  </script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-C9MMD608XV"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <!-- Optimized Third-Party Analytics & Ads (Loaded on idle/interaction to prevent main-thread blocking) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-  gtag('config', 'G-C9MMD608XV');
-</script>
-  <!-- WebSite Schema -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "@id": "https://sssafetysolutions.pk/#website",
-    "name": "SS Safety Solutions",
-    "url": "https://sssafetysolutions.pk/",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": "https://sssafetysolutions.pk/products?q={search_term_string}"
-      },
-      "query-input": "required name=search_term_string"
+    function loadThirdPartyScripts() {
+      if (window.__thirdPartyLoaded) return;
+      window.__thirdPartyLoaded = true;
+
+      // Meta Pixel
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '1053065860546812');
+      fbq('track', 'PageView');
+
+      // Google Tag Manager / Analytics
+      var gtmScript = document.createElement('script');
+      gtmScript.async = true;
+      gtmScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-C9MMD608XV';
+      document.head.appendChild(gtmScript);
+      gtag('config', 'G-C9MMD608XV');
+
+      // Google AdSense
+      var adsScript = document.createElement('script');
+      adsScript.async = true;
+      adsScript.crossOrigin = 'anonymous';
+      adsScript.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4413905422129092';
+      document.head.appendChild(adsScript);
     }
-  }
-  </script>
 
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4413905422129092" crossorigin="anonymous"></script>
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(function() {
+        setTimeout(loadThirdPartyScripts, 1200);
+      }, { timeout: 3000 });
+    } else {
+      window.addEventListener('load', function() {
+        setTimeout(loadThirdPartyScripts, 1500);
+      });
+    }
+
+    // Trigger immediately on first user interaction if before timer
+    ['touchstart', 'scroll', 'mousemove', 'keydown'].forEach(function(evt) {
+      window.addEventListener(evt, loadThirdPartyScripts, { once: true, passive: true });
+    });
+  </script>
   <style>
     /* Prevent Flash of Unstyled Content (FOUC) by hiding SEO fallback tags for users and showing a premium loading screen */
     #root > header, 

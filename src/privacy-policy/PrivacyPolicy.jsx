@@ -60,10 +60,10 @@ function PrivacyPolicy() {
         breadcrumbs={breadcrumbs}
       />
 
-      {/* Header section - Dark, premium hero with orange accent */}
+      {}
       <section className="relative py-24 bg-gradient-to-br from-gray-900 via-red-950/40 to-gray-950 overflow-hidden">
         <div className="absolute inset-0 bg-black/50"></div>
-        {/* Glow orbs */}
+        {}
         <div className="absolute top-1/4 left-1/4 w-72 h-72 rounded-full bg-orange-500/10 blur-3xl pointer-events-none" />
         <div className="absolute bottom-1/4 right-1/4 w-72 h-72 rounded-full bg-red-700/10 blur-3xl pointer-events-none" />
         
@@ -95,7 +95,7 @@ function PrivacyPolicy() {
         </div>
       </section>
 
-      {/* Content Section - Light theme with white cards */}
+      {}
       <section className="py-20 bg-slate-50">
         <div className="max-w-4xl mx-auto px-6">
           <div className="space-y-8">
@@ -123,7 +123,7 @@ function PrivacyPolicy() {
               );
             })}
 
-            {/* Contact info section - Clean light styled card */}
+            {}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}

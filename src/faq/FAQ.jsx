@@ -84,10 +84,10 @@ function FAQ() {
         breadcrumbs={breadcrumbs}
       />
 
-      {/* Header section - Dark, premium hero with orange accent */}
+      {}
       <section className="relative py-24 bg-gradient-to-br from-gray-900 via-red-950/40 to-gray-950 overflow-hidden">
         <div className="absolute inset-0 bg-black/50"></div>
-        {/* Glow orbs */}
+        {}
         <div className="absolute top-1/4 left-1/4 w-72 h-72 rounded-full bg-orange-500/10 blur-3xl pointer-events-none" />
         <div className="absolute bottom-1/4 right-1/4 w-72 h-72 rounded-full bg-red-700/10 blur-3xl pointer-events-none" />
 
@@ -119,12 +119,12 @@ function FAQ() {
         </div>
       </section>
 
-      {/* FAQ content section - Light background */}
+      {}
       <section className="py-20 bg-slate-50 min-h-[600px]">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             
-            {/* Left sidebar: categories */}
+            {}
             <div className="lg:col-span-4 space-y-3">
               <h2 className="text-xl font-bold text-gray-800 mb-6 uppercase tracking-wider pl-2 border-l-4 border-orange-600">Categories</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3">
@@ -149,7 +149,7 @@ function FAQ() {
               </div>
             </div>
 
-            {/* Right sidebar: accordion list */}
+            {}
             <div className="lg:col-span-8 space-y-5">
               <h2 className="text-xl font-bold text-gray-800 mb-6 uppercase tracking-wider pl-2 border-l-4 border-orange-600">
                 {categories.find(c => c.id === activeCategory)?.label}
@@ -201,7 +201,7 @@ function FAQ() {
                 </AnimatePresence>
               </div>
 
-              {/* Still have questions banner */}
+              {}
               <motion.div
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}

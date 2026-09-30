@@ -67,10 +67,10 @@ function ReturnPolicy() {
         breadcrumbs={breadcrumbs}
       />
 
-      {/* Header section - Dark, premium hero with orange accent */}
+      {}
       <section className="relative py-24 bg-gradient-to-br from-gray-900 via-red-950/40 to-gray-950 overflow-hidden">
         <div className="absolute inset-0 bg-black/50"></div>
-        {/* Glow orbs */}
+        {}
         <div className="absolute top-1/4 left-1/4 w-72 h-72 rounded-full bg-orange-500/10 blur-3xl pointer-events-none" />
         <div className="absolute bottom-1/4 right-1/4 w-72 h-72 rounded-full bg-red-700/10 blur-3xl pointer-events-none" />
 
@@ -102,12 +102,12 @@ function ReturnPolicy() {
         </div>
       </section>
 
-      {/* Content Section - Light theme */}
+      {}
       <section className="py-20 bg-slate-50">
         <div className="max-w-6xl mx-auto px-6">
           <div className="space-y-16">
             
-            {/* Overview / Introduction */}
+            {}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -123,7 +123,7 @@ function ReturnPolicy() {
               </p>
             </motion.div>
 
-            {/* Conditions: Eligible vs Non-Returnable */}
+            {}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
               {conditions.map((cond, idx) => {
                 const Icon = cond.icon;
@@ -155,7 +155,7 @@ function ReturnPolicy() {
               })}
             </div>
 
-            {/* Return Process Steps */}
+            {}
             <div className="space-y-10 max-w-5xl mx-auto">
               <h3 className="text-2xl font-bold text-gray-800 text-center uppercase tracking-wider">
                 How to Process a Return
@@ -172,7 +172,7 @@ function ReturnPolicy() {
                       transition={{ duration: 0.5, delay: idx * 0.1 }}
                       className="bg-white border border-gray-200 p-6 rounded-2xl text-center relative hover:border-orange-500/20 transition-all duration-300 shadow-sm hover:shadow-md"
                     >
-                      {/* Step Number Badge */}
+                      {}
                       <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-orange-600 text-white font-extrabold px-3 py-1 rounded-full text-xs">
                         0{idx + 1}
                       </span>
@@ -189,7 +189,7 @@ function ReturnPolicy() {
               </div>
             </div>
 
-            {/* Contact Support Footer */}
+            {}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}

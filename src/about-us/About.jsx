@@ -59,7 +59,7 @@ function About() {
         breadcrumbs={breadcrumbs}
         schema={[aboutSchema]}
       />
-      {/* Hero-style Intro Section */}
+      {}
       <section className="relative py-24 md:py-32 overflow-hidden bg-gradient-to-br from-gray-900 via-red-900/20 to-gray-900">
         <div className="absolute inset-0 bg-black/40"></div>
         <img
@@ -89,7 +89,7 @@ function About() {
         </div>
       </section>
 
-      {/* What We Provide Section */}
+      {}
       <section className="py-20 md:py-28 bg-gradient-to-br from-gray-50 via-red-50/30 to-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <motion.h2
@@ -191,7 +191,7 @@ function About() {
         </div>
       </section>
 
-      {/* Counter Stats Section with Scroll Animation */}
+      {}
       <section className="py-20 md:py-28 bg-gradient-to-br from-red-400 to-orange-400 text-white">
         <div className="max-w-7xl mx-auto px-6">
           <motion.h2
@@ -229,7 +229,7 @@ function About() {
         </div>
       </section>
 
-      {/* Certifications & Warehouse */}
+      {}
       <section className="py-20 md:py-28 bg-gradient-to-br from-gray-50 via-red-50/30 to-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <motion.h2

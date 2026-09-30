@@ -1,13 +1,15 @@
 @import "tailwindcss";
 
-
-*{
-    
+* {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-style: normal;
- 
+}
 
+/* Swiper default bullet transitions - composited transforms only */
+.swiper-pagination-bullet {
+  transition: transform 0.25s ease, opacity 0.25s ease, background-color 0.25s ease !important;
+  will-change: transform, opacity;
 }
 
 .custom-pagination .swiper-pagination-bullet {

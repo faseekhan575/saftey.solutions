@@ -11,7 +11,7 @@ import { useCart } from '../context/CartContext';
 import { toast } from 'react-hot-toast';
 import SEO from '../components/SEO';
 
-/* ─── Animated Counter ─────────────────────────────────────────────────── */
+
 function AnimatedCounter({ target, suffix = '', duration = 2 }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
@@ -30,7 +30,7 @@ function AnimatedCounter({ target, suffix = '', duration = 2 }) {
   return <span ref={ref}>{displayed.toLocaleString()}{suffix}</span>;
 }
 
-/* ─── Magnetic Button ───────────────────────────────────────────────────── */
+
 function MagneticButton({ children, className, onClick }) {
   const ref = useRef(null);
   const x = useMotionValue(0);
@@ -67,7 +67,7 @@ function MagneticButton({ children, className, onClick }) {
   );
 }
 
-/* ─── Floating Particles ────────────────────────────────────────────────── */
+
 function Particles() {
   const particles = Array.from({ length: 18 }, (_, i) => ({
     id: i,
@@ -89,14 +89,14 @@ function Particles() {
           transition={{ duration: p.duration, delay: p.delay, repeat: Infinity, ease: 'easeInOut' }}
         />
       ))}
-      {/* Glow orbs */}
+      {}
       <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-orange-500/10 blur-3xl" />
       <div className="absolute bottom-1/3 right-1/4 w-96 h-96 rounded-full bg-red-700/10 blur-3xl" />
     </div>
   );
 }
 
-/* ─── Section Wrapper with fade-up ─────────────────────────────────────── */
+
 function FadeUp({ children, delay = 0, className = '' }) {
   return (
     <motion.div
@@ -111,7 +111,7 @@ function FadeUp({ children, delay = 0, className = '' }) {
   );
 }
 
-/* ─── Category Card ─────────────────────────────────────────────────────── */
+
 function CategoryCard({ item, index }) {
   const getHashId = (title) =>
     title.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and');
@@ -125,7 +125,7 @@ function CategoryCard({ item, index }) {
       className="group relative bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-shadow duration-500 border border-gray-100"
       style={{ willChange: 'transform' }}
     >
-      {/* Image */}
+      {}
       <div className="relative h-56 overflow-hidden">
         <img
           src={item.img}
@@ -136,30 +136,31 @@ function CategoryCard({ item, index }) {
           onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.1)')}
           onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1.02)')}
         />
-        {/* Gradient overlay */}
+        {}
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
-        {/* Category label pill */}
+        {}
         <div className="absolute bottom-3 left-3 bg-white/90 backdrop-blur-sm text-red-700 text-xs font-bold px-3 py-1 rounded-full shadow">
           {item.title}
         </div>
       </div>
 
-      {/* Body */}
+      {}
       <div className="p-6">
         <p className="text-gray-500 text-sm leading-relaxed mb-5 line-clamp-2">{item.desc}</p>
-        <Link to={`/products?id=${item.title}`}>
+        <Link to={`/products?id=${item.title}`} aria-label={`Explore ${item.title} products`}>
           <motion.button
             whileHover={{ x: 4 }}
             transition={{ type: 'spring', stiffness: 300 }}
             className="inline-flex items-center gap-2 text-red-700 font-semibold text-sm group/btn"
+            aria-label={`Explore ${item.title} products`}
           >
-            Explore
-            <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover/btn:translate-x-1" />
+            Explore <span className="sr-only">{item.title}</span>
+            <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover/btn:translate-x-1" aria-hidden="true" />
           </motion.button>
         </Link>
       </div>
 
-      {/* Animated border accent */}
+      {}
       <div className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-orange-500 to-red-700 w-0 group-hover:w-full transition-all duration-500" />
     </motion.div>
   );
@@ -168,7 +169,7 @@ function CategoryCard({ item, index }) {
 function ProductCard({ product, onAddToCart }) {
   return (
     <div className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 h-full flex flex-col border border-gray-100">
-      {/* Image */}
+      {}
       <Link to={`/products/${product.id}`} className="relative h-64 overflow-hidden flex-shrink-0 block">
         <img
           src={product.image}
@@ -195,7 +196,7 @@ function ProductCard({ product, onAddToCart }) {
         </div>
       </Link>
 
-      {/* Body */}
+      {}
       <div className="p-6 flex flex-col flex-1 text-center">
         <Link to={`/products/${product.id}`} className="hover:text-red-800 transition-colors block mb-2">
           <h3 className="text-lg font-bold text-red-700 leading-snug">{product.name}</h3>
@@ -224,7 +225,7 @@ function ProductCard({ product, onAddToCart }) {
   );
 }
 
-/* ─── Main Component ────────────────────────────────────────────────────── */
+
 function Home() {
   const siteUrl = 'https://www.sssafetysolutions.com';
   const heroRef = useRef(null);
@@ -342,7 +343,7 @@ function Home() {
   ];
 
   const categories = [
-    { title: 'Security Equipment', desc: 'Tactical gear, body armor, helmets & protective suits for high-risk operations.', img: 'https://acelinkarmor.com/wp-content/uploads/2024/08/helmet-category-banner.jpg' },
+    { title: 'Security Equipment', desc: 'Tactical gear, body armor, helmets & protective suits for high-risk operations.', img: '/images/products/infographics/tactical-ballistic-helmet.jpg' },
     { title: 'Rescue Equipment', desc: 'Ropes, harnesses, stretchers & specialized tools for emergency response.', img: 'https://www.cmcpro.com/wp-content/uploads/wd/products/500104_AZTEK_ProSeries_System__5.jpg?ver=1731612266' },
     { title: 'Fire Fighting Equipment', desc: 'Extinguishers, hoses, nozzles & essential firefighting tools.', img: 'https://i0.wp.com/newelaf.com/wp-content/uploads/2023/05/Fire-Fighting-Equipments.webp' },
     { title: 'Safety Shoes', desc: 'Steel-toe, anti-slip boots meeting international safety standards.', img: 'https://m.media-amazon.com/images/I/71Dn8rcuo7L._AC_UY900_.jpg' },
@@ -351,7 +352,7 @@ function Home() {
     { title: 'Fire Alarm System', desc: 'Smoke detectors, sensors & early warning panels.', img: 'https://douglaselectric.us/wp-content/uploads/2023/06/fire-alarm-system-installation-2-859x600.jpg' },
     { title: 'Fall Arrest System', desc: 'Harnesses, lanyards & anchors for height safety.', img: 'https://www.shutterstock.com/image-photo/harness-fall-arrest-lanyard-260nw-2535477175.jpg' },
     { title: 'Personal Protective Wear', desc: 'High-visibility jackets & weather-resistant clothing.', img: 'https://cdn.prod.website-files.com/647888ca92d03e3fca3f1ea0/647888ca92d03e3fca3f23a6_Safety%20yellow%20and%20orange%20vests.jpg' },
-    { title: 'Medical Equipment For Ambulance', desc: 'Defibrillators, oxygen systems & emergency kits.', img: 'http://mfimedical.com/cdn/shop/articles/stretcher-in-ambulance-1_7982e7b7-ef61-4213-8138-fcb05ceeddc7.jpg?v=1748437823' },
+    { title: 'Medical Equipment For Ambulance', desc: 'Defibrillators, oxygen systems & emergency kits.', img: 'https://mfimedical.com/cdn/shop/articles/stretcher-in-ambulance-1_7982e7b7-ef61-4213-8138-fcb05ceeddc7.jpg?v=1748437823' },
     { title: 'Personal Protective Equipments', desc: 'Helmets, gloves, glasses & full PPE kits.', img: 'https://thumbs.dreamstime.com/b/personal-protective-equipment-ppe-kit-hospital-doctors-nurses-personal-protective-equipment-ppe-kit-180073267.jpg' },
     { title: 'Laboratory safety System', desc: 'Goggles, lab coats, gloves & safety equipment for laboratory work.', img: 'https://media.istockphoto.com/id/918825222/photo/woman-scientist-adjusts-protective-goggles-staring-intently.jpg?s=612x612&w=0&k=20&c=SC0wMROl6EG69TUoKXnlQ-lssKlQzVAHjswjUTWiGSk=' },
     { title: 'Safety Containment System', desc: 'Secondary containment solutions for hazardous materials storage.', img: 'https://assets.production.denios.io/article/327073_20220809-092005.jpg' },
@@ -368,7 +369,7 @@ function Home() {
     toast.success(`${product.name} × 1 added to cart!`);
   }, [addToCart]);
 
-  /* Headline stagger */
+  
   const headline = ['S.S SAFETY', 'SOLUTIONS'];
   const container = {
     hidden: {},
@@ -392,13 +393,13 @@ function Home() {
         schema={[homeSchema, faqSchema]}
       />
 
-      {/* ── HERO ───────────────────────────────────────────────────────────── */}
+      {}
       <section
         ref={heroRef}
         className="relative h-screen min-h-[640px] flex flex-col items-center justify-center text-center px-6 overflow-hidden"
         aria-label="Hero"
       >
-        {/* Ken Burns bg */}
+        {}
         <motion.div
           className="absolute inset-0 -z-10"
           style={{ scale: heroScale, y: heroY }}
@@ -412,19 +413,19 @@ function Home() {
           />
         </motion.div>
 
-        {/* Layered overlays */}
+        {}
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-red-950/40 via-transparent to-orange-950/30" />
 
-        {/* Particles */}
+        {}
         <Particles />
 
-        {/* Content */}
+        {}
         <motion.div
           className="relative z-10 max-w-5xl mx-auto"
           style={{ opacity: heroOpacity }}
         >
-          {/* Icon */}
+          {}
           <motion.div
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -434,11 +435,13 @@ function Home() {
             <img
               src="https://png.pngtree.com/png-vector/20250112/ourmid/pngtree-bright-orange-flame-icon-illustration-with-vibrant-yellow-and-red-tones-png-image_15160948.png"
               alt="Flame Icon"
-              className="h-16 w-16 mx-auto drop-shadow-[0_0_24px_rgba(251,146,60,0.8)]"
+              width="64"
+              height="64"
+              className="h-16 w-16 mx-auto object-contain drop-shadow-[0_0_24px_rgba(251,146,60,0.8)]"
             />
           </motion.div>
 
-          {/* Headline with stagger */}
+          {}
           <motion.h1 variants={container} initial="hidden" animate="show" className="overflow-hidden mb-6">
             {headline.map((line, i) => (
               <motion.div key={i} variants={word} className="overflow-hidden block">
@@ -454,7 +457,7 @@ function Home() {
             ))}
           </motion.h1>
 
-          {/* Tagline */}
+          {}
           <motion.p
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -464,7 +467,7 @@ function Home() {
             Pakistan's trusted source for certified fire safety, rescue, and industrial protection equipment.
           </motion.p>
 
-          {/* CTAs */}
+          {}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -484,7 +487,7 @@ function Home() {
           </motion.div>
         </motion.div>
 
-        {/* Scroll indicator */}
+        {}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -500,9 +503,9 @@ function Home() {
         </motion.div>
       </section>
 
-      {/* ── STATS BAND ─────────────────────────────────────────────────────── */}
+      {}
       <section className="relative bg-gradient-to-r from-red-900 via-red-800 to-red-900 py-16 overflow-hidden">
-        {/* Subtle pattern */}
+        {}
         <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
         <div className="max-w-6xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((s, i) => (
@@ -519,9 +522,9 @@ function Home() {
         </div>
       </section>
 
-      {/* ── CATEGORIES ─────────────────────────────────────────────────────── */}
+      {}
       <section className="py-28 px-4 bg-gray-50 relative overflow-hidden">
-        {/* bg decoration */}
+        {}
         <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-orange-100/60 blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-72 h-72 rounded-full bg-red-100/50 blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none" />
 
@@ -545,7 +548,7 @@ function Home() {
         </div>
       </section>
 
-      {/* ── FEATURED PRODUCTS ──────────────────────────────────────────────── */}
+      {}
       <section className="py-28 px-4 bg-white relative overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full bg-red-50/80 blur-3xl pointer-events-none" />
 
@@ -581,9 +584,9 @@ function Home() {
         </div>
       </section>
 
-      {/* ── LEADERSHIP & EXECUTIVE BOARD ───────────────────────────────────── */}
+      {}
       <section className="py-24 md:py-32 px-4 bg-gradient-to-b from-stone-50 via-white to-orange-50/40 relative overflow-hidden">
-        {/* Background ambient lighting */}
+        {}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <div className="absolute top-10 right-10 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-orange-200/35 via-red-100/25 to-transparent blur-3xl" />
           <div className="absolute bottom-10 left-10 w-[600px] h-[600px] rounded-full bg-gradient-to-tr from-red-200/30 via-amber-100/35 to-transparent blur-3xl" />
@@ -591,7 +594,7 @@ function Home() {
         </div>
 
         <div className="max-w-6xl mx-auto relative space-y-20 md:space-y-28">
-          {/* Section Header */}
+          {}
           <FadeUp className="text-center">
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest bg-orange-100 text-orange-700 border border-orange-200/80 shadow-sm mb-4">
               <Award className="w-3.5 h-3.5 text-orange-600" />
@@ -605,15 +608,15 @@ function Home() {
             </p>
           </FadeUp>
 
-          {/* ── 1. TOP SPOTLIGHT: FOUNDER & CEO ──────────────────────────────── */}
+          {}
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-14 items-center">
-            {/* CEO Portrait Card (5 cols) */}
+            {}
             <FadeUp delay={0.1} className="lg:col-span-5 flex justify-center">
               <div className="relative group w-full max-w-md">
-                {/* Multi-layer ambient backdrop glow */}
+                {}
                 <div className="absolute -inset-5 rounded-3xl bg-gradient-to-tr from-amber-500/25 via-orange-500/30 to-red-600/25 blur-2xl opacity-75 group-hover:opacity-100 transition-opacity duration-700" />
 
-                {/* Portrait card */}
+                {}
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/95 bg-slate-900 ring-1 ring-black/5">
                   <div className="relative aspect-[3/4] w-full overflow-hidden bg-slate-950">
                     <img
@@ -622,10 +625,10 @@ function Home() {
                       className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                       loading="lazy"
                     />
-                    {/* Subtle gradient vignette at bottom */}
+                    {}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent pointer-events-none" />
 
-                    {/* Quick identity card on bottom of photo */}
+                    {}
                     <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-black/45 backdrop-blur-md border border-white/15 text-white">
                       <div className="flex items-center gap-1.5 text-amber-400 text-xs font-bold uppercase tracking-wider mb-0.5">
                         <Sparkles className="w-3.5 h-3.5" />
@@ -636,7 +639,7 @@ function Home() {
                     </div>
                   </div>
 
-                  {/* Floating CEO Role Badge */}
+                  {}
                   <motion.div
                     animate={{ y: [0, -5, 0] }}
                     transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
@@ -649,10 +652,10 @@ function Home() {
               </div>
             </FadeUp>
 
-            {/* CEO Message Card (7 cols) */}
+            {}
             <FadeUp delay={0.2} className="lg:col-span-7">
               <div className="bg-white/95 backdrop-blur-md rounded-3xl p-8 md:p-12 shadow-xl border border-orange-100/90 relative">
-                {/* Decorative Quote Icon */}
+                {}
                 <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500/15 via-orange-500/10 to-red-500/10 border border-orange-200/60 flex items-center justify-center mb-6">
                   <Quote className="w-7 h-7 text-red-700" />
                 </div>
@@ -669,7 +672,7 @@ function Home() {
                   </p>
                 </div>
 
-                {/* Key Executive Highlights */}
+                {}
                 <div className="grid grid-cols-3 gap-3 mt-8 pt-6 border-t border-gray-100 text-center">
                   <div className="p-3 rounded-2xl bg-stone-50 border border-stone-200/60">
                     <p className="text-2xl font-black text-red-800">12+</p>
@@ -685,7 +688,7 @@ function Home() {
                   </div>
                 </div>
 
-                {/* Executive Signature & Designation */}
+                {}
                 <div className="mt-6 pt-4 border-t border-gray-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                   <div>
                     <h3 className="text-xl md:text-2xl font-black text-red-800 tracking-tight">
@@ -703,7 +706,7 @@ function Home() {
             </FadeUp>
           </div>
 
-          {/* ── 2. STRATEGIC TIMELINE OF GROWTH ──────────────────────────────── */}
+          {}
           <FadeUp delay={0.15} className="relative">
             <div className="text-center mb-10">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-red-100/80 text-red-800 mb-2">
@@ -718,9 +721,9 @@ function Home() {
               </p>
             </div>
 
-            {/* Timeline Cards Grid */}
+            {}
             <div className="relative">
-              {/* Connecting line on desktop */}
+              {}
               <div className="hidden lg:block absolute top-1/2 left-4 right-4 h-0.5 bg-gradient-to-r from-red-600 via-orange-500 to-amber-500 -translate-y-1/2 z-0 opacity-25" />
 
               <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 relative z-10">
@@ -777,7 +780,7 @@ function Home() {
             </div>
           </FadeUp>
 
-          {/* ── 3. INTERACTIVE EXECUTIVE CAROUSEL / SWIPE DECK ─────────────────── */}
+          {}
           <FadeUp delay={0.2} className="relative">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
               <div>
@@ -793,7 +796,7 @@ function Home() {
                 </p>
               </div>
 
-              {/* Quick Swiper Controls */}
+              {}
               <div className="flex items-center gap-2">
                 <button
                   id="leadership-prev"
@@ -812,7 +815,7 @@ function Home() {
               </div>
             </div>
 
-            {/* Swiper Carousel */}
+            {}
             <Swiper
               modules={[Navigation, Pagination, A11y, Autoplay]}
               navigation={{
@@ -865,7 +868,7 @@ function Home() {
               ].map((leader) => (
                 <SwiperSlide key={leader.id} className="h-auto">
                   <div className="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col h-full group">
-                    {/* Portrait Frame */}
+                    {}
                     <div className="relative aspect-[3/4] w-full overflow-hidden bg-slate-950">
                       <img
                         src={leader.image}
@@ -875,20 +878,20 @@ function Home() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent pointer-events-none" />
 
-                      {/* Floating Badge */}
+                      {}
                       <div className={`absolute top-3 right-3 text-white text-[11px] font-black px-3.5 py-1.5 rounded-full shadow-lg ${leader.badgeBg} border border-white/30 flex items-center gap-1.5`}>
                         <Shield className="w-3 h-3 fill-white/20" />
                         <span>{leader.badge}</span>
                       </div>
 
-                      {/* Photo Overlay Title */}
+                      {}
                       <div className="absolute bottom-3 left-4 right-4 text-white">
                         <p className="text-lg font-black tracking-wide text-white drop-shadow">{leader.name}</p>
                         <p className="text-xs font-semibold text-orange-300 drop-shadow">{leader.role}</p>
                       </div>
                     </div>
 
-                    {/* Body Content */}
+                    {}
                     <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
                       <p className="text-gray-600 text-sm leading-relaxed italic border-l-2 border-orange-500 pl-3">
                         "{leader.quote}"
@@ -916,7 +919,7 @@ function Home() {
         </div>
       </section>
 
-      {/* ── SEO AUTHORITY DIVISIONS ─────────────────────────────────────────── */}
+      {}
       <section className="py-24 px-4 bg-stone-50/80 relative overflow-hidden border-t border-stone-200/60">
         <div className="max-w-7xl mx-auto relative">
           <FadeUp className="text-center mb-16">
@@ -933,7 +936,7 @@ function Home() {
           </FadeUp>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Division 1: Tactical Gear & Army Store */}
+            {}
             <FadeUp delay={0.05} className="h-full">
               <div className="bg-white rounded-3xl p-7 border border-gray-100 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col h-full group hover:-translate-y-1.5">
                 <div className="w-14 h-14 rounded-2xl bg-amber-50 border border-amber-200/80 flex items-center justify-center mb-5 text-amber-700 group-hover:scale-110 transition-transform">
@@ -964,7 +967,7 @@ function Home() {
               </div>
             </FadeUp>
 
-            {/* Division 2: Self Defence & Tasers */}
+            {}
             <FadeUp delay={0.1} className="h-full">
               <div className="bg-white rounded-3xl p-7 border border-gray-100 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col h-full group hover:-translate-y-1.5">
                 <div className="w-14 h-14 rounded-2xl bg-red-50 border border-red-200/80 flex items-center justify-center mb-5 text-red-700 group-hover:scale-110 transition-transform">
@@ -995,7 +998,7 @@ function Home() {
               </div>
             </FadeUp>
 
-            {/* Division 3: Biometric Attendance Systems */}
+            {}
             <FadeUp delay={0.15} className="h-full">
               <div className="bg-white rounded-3xl p-7 border border-gray-100 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col h-full group hover:-translate-y-1.5">
                 <div className="w-14 h-14 rounded-2xl bg-blue-50 border border-blue-200/80 flex items-center justify-center mb-5 text-blue-700 group-hover:scale-110 transition-transform">
@@ -1026,7 +1029,7 @@ function Home() {
               </div>
             </FadeUp>
 
-            {/* Division 4: Fire Hydrants & Smoke Detectors */}
+            {}
             <FadeUp delay={0.2} className="h-full">
               <div className="bg-white rounded-3xl p-7 border border-gray-100 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col h-full group hover:-translate-y-1.5">
                 <div className="w-14 h-14 rounded-2xl bg-orange-50 border border-orange-200/80 flex items-center justify-center mb-5 text-orange-700 group-hover:scale-110 transition-transform">
@@ -1058,7 +1061,7 @@ function Home() {
             </FadeUp>
           </div>
 
-          {/* Quick Search Tag Cloud */}
+          {}
           <FadeUp delay={0.25} className="mt-14 p-6 sm:p-8 bg-white rounded-3xl border border-gray-100 shadow-sm">
             <div className="flex items-center gap-2 mb-4">
               <Tag className="w-4 h-4 text-red-700" />
@@ -1088,7 +1091,7 @@ function Home() {
         </div>
       </section>
 
-      {/* ── FREQUENTLY ASKED QUESTIONS (FAQ) ────────────────────────────────── */}
+      {}
       <section className="py-24 px-4 bg-white relative overflow-hidden">
         <div className="max-w-4xl mx-auto relative">
           <FadeUp className="text-center mb-14">
@@ -1142,7 +1145,7 @@ function Home() {
         </div>
       </section>
 
-      {/* ── CTA STRIP ──────────────────────────────────────────────────────── */}
+      {}
       <section className="relative overflow-hidden bg-gradient-to-r from-red-900 via-red-800 to-orange-800 py-20 px-4 text-center">
         <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
         <FadeUp className="relative max-w-3xl mx-auto">
@@ -1158,7 +1161,7 @@ function Home() {
         </FadeUp>
       </section>
 
-      {/* Global Swiper pagination style overrides */}
+      {}
       <style>{`
         .swiper-pagination-bullet {
           background: #b91c1c !important;

@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import auths from '../appwrite/appwrite';
 import { motion } from 'framer-motion';
-import { ArrowLeft } from 'lucide-react'; // For back icon
+import { ArrowLeft } from 'lucide-react'; 
 import SEO from '../components/SEO';
 
 function Signup() {
@@ -54,7 +54,7 @@ function Signup() {
         noindex
       />
       <div className="min-h-screen flex items-center justify-center bg-gray-50 relative">
-        {/* Back to Home Button - Top Left Corner */}
+        {}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -72,7 +72,7 @@ function Signup() {
 
         <div className="w-full max-w-6xl grid lg:grid-cols-2 shadow-2xl rounded-3xl overflow-hidden">
           
-          {/* Left Side */}
+          {}
           <div className="hidden lg:block relative h-full min-h-screen">
             <img
               src="https://images.unsplash.com/photo-1618609252884-c29e29b32205?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZmlyZSUyMGZpZ2h0ZXJ8ZW58MHx8MHx8fDA%3D"
@@ -97,7 +97,7 @@ function Signup() {
             </div>
           </div>
 
-          {/* Right Side */}
+          {}
           <div className="flex items-center justify-center bg-white p-10 lg:p-20">
             <motion.div 
               initial={{ opacity: 0, x: 50 }}
@@ -105,12 +105,14 @@ function Signup() {
               transition={{ duration: 0.8 }}
               className="w-full max-w-md"
             >
-              {/* Logo */}
+              {}
               <div className="text-center mb-10">
                 <img 
                   src="https://png.pngtree.com/png-vector/20250112/ourmid/pngtree-bright-orange-flame-icon-illustration-with-vibrant-yellow-and-red-tones-png-image_15160948.png" 
                   alt="Flame Icon"
-                  className="h-20 w-20 mx-auto mb-4 drop-shadow-lg"
+                  width="80"
+                  height="80"
+                  className="h-20 w-20 mx-auto mb-4 object-contain drop-shadow-lg"
                 />
                 <h2 className="text-4xl font-extrabold text-red-800">Create Account</h2>
                 <p className="text-gray-600 mt-2 text-lg">Join SS.SAFETY SOLUTIONS</p>

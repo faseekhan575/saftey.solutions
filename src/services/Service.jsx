@@ -132,7 +132,7 @@ function Service() {
         breadcrumbs={breadcrumbs}
         schema={[servicesSchema]}
       />
-      {/* Hero Section */}
+      {}
       <section className="relative py-28 md:py-40 overflow-hidden bg-gradient-to-br from-gray-900 via-red-900/40 to-gray-900">
         <div className="absolute inset-0 bg-black/50"></div>
         <img
@@ -162,7 +162,7 @@ function Service() {
         </div>
       </section>
 
-      {/* Category Boxes Section */}
+      {}
       <section className="py-24 md:py-32 bg-gradient-to-br from-gray-50 via-red-50/30 to-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <motion.h2
@@ -219,7 +219,7 @@ function Service() {
             })}
           </div>
 
-          {/* CTA Section */}
+          {}
           <motion.div
             initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}

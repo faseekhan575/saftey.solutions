@@ -1,5 +1,5 @@
-// LocalStorage-based Authentication Service
-// Completely replaces external Appwrite dependency to prevent ad-blocker blocks and network errors.
+
+
 
 const USERS_STORAGE_KEY = "ss_safety_users";
 const CURRENT_USER_STORAGE_KEY = "ss_safety_current_user";
@@ -31,7 +31,7 @@ function saveUsers(users) {
 export class AuthenticationService {
   isAvailable = true;
 
-  // ✅ REGISTER
+  
   async register({ name, email, pass }) {
     if (!isBrowser()) {
       throw new Error("Local storage is not available in this environment.");
@@ -77,7 +77,7 @@ export class AuthenticationService {
     };
   }
 
-  // ✅ LOGIN
+  
   async login({ email, pass }) {
     if (!isBrowser()) {
       throw new Error("Local storage is not available in this environment.");
@@ -121,7 +121,7 @@ export class AuthenticationService {
     };
   }
 
-  // ✅ CURRENT USER
+  
   async currentuser() {
     if (!isBrowser()) return null;
 
@@ -139,7 +139,7 @@ export class AuthenticationService {
     }
   }
 
-  // ✅ LOGOUT
+  
   async logout() {
     if (!isBrowser()) return true;
 

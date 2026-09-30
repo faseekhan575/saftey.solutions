@@ -1,4 +1,4 @@
-// src/context/CartContext.jsx
+
 import React, { createContext, useContext, useState, useEffect } from "react";
 
 const CartContext = createContext();
@@ -9,7 +9,7 @@ export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  // LOAD CART
+  
   useEffect(() => {
     try {
       const saved = localStorage.getItem("ssSafetyCart_v2");
@@ -29,7 +29,7 @@ export const CartProvider = ({ children }) => {
     }
   }, []);
 
-  // SAVE CART
+  
   useEffect(() => {
     if (!isLoaded) return;
 
@@ -43,14 +43,14 @@ export const CartProvider = ({ children }) => {
     setCartItems((current) => {
       const existing = current.find((item) => item.id === product.id);
       if (existing) {
-        // Increase quantity if already in cart
+        
         return current.map((item) =>
           item.id === product.id
             ? { ...item, quantity: item.quantity + quantity }
             : item
         );
       } else {
-        // Add new item with the selected quantity
+        
         return [...current, { ...product, quantity }];
       }
     });
@@ -81,13 +81,13 @@ export const CartProvider = ({ children }) => {
 
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
-  // FIXED TOTAL: Only calculate numeric prices
-  // const totalAmount = cartItems.reduce((sum, item) => {
-  //   if (typeof item.price === "number") {
-  //     return sum + item.price * item.quantity;
-  //   }
-  //   return sum; // Skip "Call for Price" items
-  // }, 0);
+  
+  
+  
+  
+  
+  
+  
   const totalAmount = "Call for Price";
 
 

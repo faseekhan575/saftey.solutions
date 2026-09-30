@@ -3,15 +3,15 @@ import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Clock, MessageCircle, Facebook, Instagram, Twitter, Navigation } from 'lucide-react';
 import SEO from '../components/SEO';
 
-// Accurate coordinates: UBL Bank, Brandreth Road (Chowk Dalgiran), Lahore
+
 const LAT = 31.5759;
 const LNG = 74.3273;
 const ADDRESS_LABEL = "S.S Safety Solutions, 47 Brandreth Road near UBL Bank, Lahore, Pakistan";
 
-// Opens Google Maps navigation on mobile & desktop
+
 const GMAPS_NAVIGATE = `https://www.google.com/maps/dir/?api=1&destination=${LAT},${LNG}&travelmode=driving`;
 
-// Embedded map — zoomed to street level for precision
+
 const MAP_EMBED = `https://maps.google.com/maps?q=${LAT},${LNG}&hl=en&z=18&output=embed`;
 
 function Contact() {
@@ -48,7 +48,7 @@ function Contact() {
         schema={[contactSchema]}
       />
 
-      {/* ── Hero ── */}
+      {}
       <section className="relative py-24 md:py-36 overflow-hidden bg-gradient-to-br from-gray-900 via-red-900/40 to-gray-900">
         <div className="absolute inset-0 bg-black/50" />
         <img
@@ -78,7 +78,7 @@ function Contact() {
         </div>
       </section>
 
-      {/* ── Contact Details & Map ── */}
+      {}
       <section className="py-20 md:py-28 bg-gradient-to-br from-gray-50 via-red-50/30 to-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <motion.h2
@@ -93,10 +93,10 @@ function Contact() {
 
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
 
-            {/* ── Left: Contact Info ── */}
+            {}
             <div className="space-y-8">
 
-              {/* Address + Navigate button */}
+              {}
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -114,7 +114,7 @@ function Contact() {
                   Lahore, Pakistan
                 </p>
 
-                {/* ── Primary CTA: tap-to-navigate ── */}
+                {}
                 <a
                   href={GMAPS_NAVIGATE}
                   target="_blank"
@@ -126,7 +126,7 @@ function Contact() {
                 </a>
               </motion.div>
 
-              {/* Phone & Email */}
+              {}
               <div className="grid sm:grid-cols-2 gap-6">
                 <motion.div
                   initial={{ opacity: 0, x: -50 }}
@@ -163,7 +163,7 @@ function Contact() {
                 </motion.div>
               </div>
 
-              {/* Working Hours */}
+              {}
               <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -180,7 +180,7 @@ function Contact() {
               </motion.div>
             </div>
 
-            {/* ── Right: Map + Images ── */}
+            {}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -188,13 +188,13 @@ function Contact() {
               transition={{ duration: 0.7 }}
               className="space-y-8"
             >
-              {/*
-                Map panel — tapping the iframe on mobile opens Google Maps.
-                We wrap it in an <a> overlay so Android/iOS users who tap
-                anywhere on the map are taken directly to the native Maps app.
-              */}
+              {
+
+
+
+}
               <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-                {/* Tap-to-open overlay (invisible link over the map) */}
+                {}
                 <div className="relative">
                   <div className="relative pt-[75%]">
                     <iframe
@@ -208,7 +208,7 @@ function Contact() {
                     />
                   </div>
 
-                  {/* Bottom bar: address label + open-in-maps link */}
+                  {}
                   <div className="flex items-center justify-between gap-3 px-4 py-3 bg-gray-50 border-t border-gray-200">
                     <div className="flex items-center gap-2 min-w-0">
                       <MapPin className="w-4 h-4 text-red-700 shrink-0" />
@@ -227,7 +227,7 @@ function Contact() {
                 </div>
               </div>
 
-              {/* Photos */}
+              {}
               <div className="grid grid-cols-2 gap-6">
                 <img
                   src="https://aiefire.com/wp-content/uploads/2020/10/AIE-Fire-Exit-FIre-Safety-System-AdobeStock_161189679.webp"
@@ -245,7 +245,7 @@ function Contact() {
         </div>
       </section>
 
-      {/* ── Connect Section ── */}
+      {}
       <section className="py-16 md:py-20 bg-gradient-to-br from-red-700 to-orange-700 text-white">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <motion.h2
@@ -259,7 +259,7 @@ function Contact() {
           </motion.h2>
 
           <div className="flex flex-col sm:flex-row justify-center items-center gap-8">
-            {/* WhatsApp */}
+            {}
             <motion.a
               href="https://wa.me/923347616779?text=Hi%20I%20am%20Mr.%20Sufyan%20from%20S.S%20Safety%20Solutions.%20How%20can%20I%20help%20you?"
               target="_blank"
@@ -272,7 +272,7 @@ function Contact() {
               Chat on WhatsApp
             </motion.a>
 
-            {/* Social Icons */}
+            {}
             <div className="flex gap-6">
               <motion.a
                 href="#"

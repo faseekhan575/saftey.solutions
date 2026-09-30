@@ -15,7 +15,7 @@ const SEO = ({
   tags,
   breadcrumbs,
   schema,
-  // Product-specific props
+  
   productPrice,
   productPriceCurrency = 'PKR',
   productAvailability = 'instock',
@@ -26,7 +26,7 @@ const SEO = ({
 }) => {
   const fullTitle = title.includes('SS Safety Solutions') ? title : `${title} | SS Safety Solutions`;
 
-  // Generate breadcrumbs schema if provided
+  
   const breadcrumbSchema = breadcrumbs ? {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -38,7 +38,7 @@ const SEO = ({
     }))
   } : null;
 
-  // Combine default schema with custom schema
+  
   const combinedSchema = schema ?
     Array.isArray(schema) ? [...(breadcrumbSchema ? [breadcrumbSchema] : []), ...schema] :
       [breadcrumbSchema, schema].filter(Boolean) :
@@ -50,7 +50,7 @@ const SEO = ({
 
   return (
     <Helmet>
-      {/* Standard Meta Tags */}
+      {}
       <title>{fullTitle}</title>
 
       {noindex && <meta name="robots" content="noindex, nofollow" />}
@@ -62,7 +62,7 @@ const SEO = ({
       <link rel="canonical" href={canonicalUrl} />
       <link rel="alternate" hreflang="en" href={canonicalUrl} />
       <link rel="alternate" hreflang="x-default" href={canonicalUrl} />
-      {/* Open Graph Meta Tags */}
+      {}
       <meta property="og:type" content={type} />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:title" content={fullTitle} />
@@ -72,7 +72,7 @@ const SEO = ({
       <meta property="og:site_name" content="SS Safety Solutions" />
       <meta property="og:locale" content="en_US" />
 
-      {/* Product Specific Open Graph Tags */}
+      {}
       {type === 'product' && (
         <>
           {productPrice && <meta property="product:price:amount" content={productPrice} />}
@@ -82,7 +82,7 @@ const SEO = ({
         </>
       )}
 
-      {/* Article Specific Open Graph Tags */}
+      {}
       {article && (
         <>
           {publishedTime && <meta property="article:published_time" content={publishedTime} />}
@@ -95,7 +95,7 @@ const SEO = ({
         </>
       )}
 
-      {/* Twitter Card Meta Tags */}
+      {}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:url" content={url} />
       <meta name="twitter:title" content={fullTitle} />
@@ -103,7 +103,7 @@ const SEO = ({
       <meta name="twitter:image" content={image} />
       <meta name="twitter:image:alt" content={fullTitle} />
 
-      {/* Twitter Product Data */}
+      {}
       {type === 'product' && (
         <>
           {productPrice && (
@@ -121,7 +121,7 @@ const SEO = ({
         </>
       )}
 
-      {/* Schema.org Structured Data */}
+      {}
       {combinedSchema.length > 0 && (
         <script type="application/ld+json">
           {JSON.stringify(combinedSchema.length === 1 ? combinedSchema[0] : combinedSchema)}

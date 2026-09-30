@@ -76,11 +76,11 @@ function Checkout() {
     return Object.keys(newErrors).length === 0;
   };
 
-  // ✅ UPDATED: instead of navigating, show confirmation screen
+  
   const handlePlaceOrder = async () => {
     if (!validateForm()) return;
     setIsSubmitting(true);
-    // Simulate a brief processing moment
+    
     await new Promise((res) => setTimeout(res, 800));
     setIsSubmitting(false);
     setOrderPlaced(true);
@@ -121,9 +121,9 @@ function Checkout() {
     window.open(`https://wa.me/${whatsappNumber}?text=${message}`, "_blank");
   };
 
-  // ─────────────────────────────────────────────
-  // ✅ ORDER CONFIRMATION SCREEN
-  // ─────────────────────────────────────────────
+  
+  
+  
   if (orderPlaced) {
     return (
       <>
@@ -133,7 +133,7 @@ function Checkout() {
         )}
         <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4 py-16">
           <div className="bg-white rounded-3xl shadow-2xl max-w-2xl w-full p-10 text-center">
-          {/* Success Icon */}
+          {}
           <div className="flex justify-center mb-6">
             <div className="w-24 h-24 bg-orange-100 rounded-full flex items-center justify-center">
               <CheckCircle size={52} className="text-orange-600" />
@@ -148,7 +148,7 @@ function Checkout() {
             the best quotation.
           </p>
 
-          {/* Order Summary */}
+          {}
           <div className="bg-gray-50 rounded-2xl p-6 text-left mb-8">
             <h2 className="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
               <Package size={20} className="text-orange-600" />
@@ -190,7 +190,7 @@ function Checkout() {
             </div>
           </div>
 
-          {/* Contact CTA */}
+          {}
           <div className="bg-orange-50 border border-orange-200 rounded-2xl p-6 mb-8">
             <p className="text-gray-700 font-semibold text-lg mb-1">
               📞 For the best quotation, please contact us:
@@ -207,7 +207,7 @@ function Checkout() {
             </a>
           </div>
 
-          {/* WhatsApp button on confirmation screen too */}
+          {}
           <a
             href={`https://wa.me/923347616779?text=Hi%20I%20am%20${encodeURIComponent(
               formData.name
@@ -233,9 +233,9 @@ function Checkout() {
     );
   }
 
-  // ─────────────────────────────────────────────
-  // EMPTY CART
-  // ─────────────────────────────────────────────
+  
+  
+  
   if (cartItems.length === 0) {
     return (
       <>
@@ -256,9 +256,9 @@ function Checkout() {
     );
   }
 
-  // ─────────────────────────────────────────────
-  // MAIN CHECKOUT FORM (unchanged)
-  // ─────────────────────────────────────────────
+  
+  
+  
   return (
     <>
       {checkoutSeo(
@@ -270,9 +270,9 @@ function Checkout() {
           <h1 className="text-4xl font-bold text-gray-900 text-center mb-12">Checkout</h1>
 
         <div className="grid lg:grid-cols-3 gap-12">
-          {/* Left Side - Form */}
+          {}
           <div className="lg:col-span-2 space-y-10">
-            {/* Shipping Information */}
+            {}
             <div className="bg-white rounded-2xl shadow-lg p-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-8 flex items-center gap-3">
                 <Truck size={28} className="text-orange-600" />
@@ -371,7 +371,7 @@ function Checkout() {
               </div>
             </div>
 
-            {/* Payment Method */}
+            {}
             <div className="bg-white rounded-2xl shadow-lg p-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-8 flex items-center gap-3">
                 <CreditCard size={28} className="text-orange-600" />
@@ -490,7 +490,7 @@ function Checkout() {
             </div>
           </div>
 
-          {/* Right Side - Sticky Order Summary */}
+          {}
           <div className="lg:col-span-1">
             <div className="bg-white rounded-2xl shadow-lg p-8 sticky top-24">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">Order Summary</h2>
@@ -529,7 +529,7 @@ function Checkout() {
                   <span>Rs. {totalAmount.toLocaleString("en-IN")}</span>
                 </div>
 
-                {/* Place Order Button */}
+                {}
                 <button
                   onClick={handlePlaceOrder}
                   disabled={isSubmitting}
@@ -538,7 +538,7 @@ function Checkout() {
                   {isSubmitting ? "Processing..." : "Place Order"}
                 </button>
 
-                {/* WhatsApp Order Button */}
+                {}
                 <button
                   onClick={handleWhatsAppOrder}
                   className="w-full bg-green-600 hover:bg-green-700 text-white font-bold text-xl py-5 rounded-xl shadow-lg hover:shadow-xl transition transform hover:scale-105 flex items-center justify-center gap-4"
