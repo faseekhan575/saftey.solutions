@@ -68,30 +68,35 @@ function MagneticButton({ children, className, onClick }) {
 }
 
 
-function Particles() {
-  const particles = Array.from({ length: 18 }, (_, i) => ({
-    id: i,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    size: Math.random() * 3 + 1,
-    delay: Math.random() * 4,
-    duration: Math.random() * 8 + 6,
-  }));
+const STATIC_PARTICLES = [
+  { id: 0, x: 12, y: 25, size: 3, delay: 0.2, duration: 8 },
+  { id: 1, x: 28, y: 65, size: 2, delay: 1.1, duration: 10 },
+  { id: 2, x: 45, y: 15, size: 4, delay: 0.5, duration: 7 },
+  { id: 3, x: 62, y: 80, size: 2, delay: 2.0, duration: 9 },
+  { id: 4, x: 75, y: 35, size: 3, delay: 1.5, duration: 11 },
+  { id: 5, x: 88, y: 70, size: 4, delay: 0.8, duration: 8 },
+  { id: 6, x: 18, y: 85, size: 2, delay: 2.5, duration: 12 },
+  { id: 7, x: 35, y: 40, size: 3, delay: 1.8, duration: 9 },
+  { id: 8, x: 55, y: 55, size: 2, delay: 0.3, duration: 10 },
+  { id: 9, x: 82, y: 20, size: 3, delay: 2.2, duration: 7 },
+  { id: 10, x: 92, y: 50, size: 2, delay: 1.0, duration: 11 },
+  { id: 11, x: 8, y: 45, size: 4, delay: 1.4, duration: 8 },
+];
 
+function Particles() {
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-      {particles.map((p) => (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ contain: 'paint' }} aria-hidden="true">
+      {STATIC_PARTICLES.map((p) => (
         <motion.div
           key={p.id}
           className="absolute rounded-full bg-orange-400/30"
           style={{ left: `${p.x}%`, top: `${p.y}%`, width: p.size, height: p.size }}
-          animate={{ y: [0, -40, 0], opacity: [0.2, 0.7, 0.2] }}
+          animate={{ y: [0, -35, 0], opacity: [0.2, 0.7, 0.2] }}
           transition={{ duration: p.duration, delay: p.delay, repeat: Infinity, ease: 'easeInOut' }}
         />
       ))}
-      {}
-      <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-orange-500/10 blur-3xl" />
-      <div className="absolute bottom-1/3 right-1/4 w-96 h-96 rounded-full bg-red-700/10 blur-3xl" />
+      <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-orange-500/10 blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/3 right-1/4 w-96 h-96 rounded-full bg-red-700/10 blur-3xl pointer-events-none" />
     </div>
   );
 }

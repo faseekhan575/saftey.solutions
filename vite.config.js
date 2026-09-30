@@ -12,6 +12,10 @@ export default defineConfig({
     }),
     tailwindcss(),
   ],
+  esbuild: {
+    drop: ['console', 'debugger'],
+    legalComments: 'none',
+  },
   build: {
     target: 'es2020',
     cssMinify: true,
@@ -20,7 +24,8 @@ export default defineConfig({
       output: {
         manualChunks: {
           'vendor-react': ['react', 'react-dom', 'react-router-dom', 'react-helmet-async'],
-          'vendor-ui': ['lucide-react', 'framer-motion', 'swiper'],
+          'vendor-framer': ['framer-motion'],
+          'vendor-swiper': ['swiper', 'swiper/react', 'swiper/modules'],
         },
       },
     },
