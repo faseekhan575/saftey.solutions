@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Mail,Phone,MapPin } from "lucide-react";
@@ -193,25 +193,25 @@ function Fotter() {
           </div>
         </div>
 
-        {}
+        {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-2 text-center md:text-left">
-          <p className="text-gray-500 text-sm">
+          <p className="text-gray-400 text-sm">
             © {new Date().getFullYear()} SS Safety Solutions. All rights reserved.
           </p>
-          <div className="flex justify-center gap-x-3 text-sm text-gray-500">
-            <Link to="/privacy-policy" className="hover:text-red-500 transition-colors">Privacy Policy</Link>
-            <span className="hidden sm:inline text-gray-800">|</span>
-            <Link to="/terms-conditions" className="hover:text-red-500 transition-colors">Terms & Conditions</Link>
-            <span className="hidden sm:inline text-gray-800">|</span>
-            <Link to="/faq" className="hover:text-red-500 transition-colors">FAQ</Link>
-            <span className="hidden sm:inline text-gray-800">|</span>
-            <Link to="/return-policy" className="hover:text-red-500 transition-colors">Return Policy</Link>
-            <span className="hidden sm:inline text-gray-800">|</span>
-            <Link to="/refund-policy" className="hover:text-red-500 transition-colors">Refund Policy</Link>
+          <div className="flex justify-center flex-wrap gap-x-3 gap-y-1 text-sm text-gray-300">
+            <Link to="/privacy-policy" className="hover:text-orange-400 transition-colors">Privacy Policy</Link>
+            <span className="hidden sm:inline text-gray-700">|</span>
+            <Link to="/terms-conditions" className="hover:text-orange-400 transition-colors">Terms & Conditions</Link>
+            <span className="hidden sm:inline text-gray-700">|</span>
+            <Link to="/faq" className="hover:text-orange-400 transition-colors">FAQ</Link>
+            <span className="hidden sm:inline text-gray-700">|</span>
+            <Link to="/return-policy" className="hover:text-orange-400 transition-colors">Return Policy</Link>
+            <span className="hidden sm:inline text-gray-700">|</span>
+            <Link to="/refund-policy" className="hover:text-orange-400 transition-colors">Refund Policy</Link>
           </div>
           <div className="text-gray-400 text-sm">
             Proudly developed by{" "}
-            <span className="text-red-600 font-bold">Fasee Developer</span>
+            <span className="text-orange-400 font-bold">Fasee Developer</span>
           </div>
         </div>
       </div>

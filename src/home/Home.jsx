@@ -345,21 +345,21 @@ function Home() {
   const categories = [
     { title: 'Security Equipment', desc: 'Tactical gear, body armor, helmets & protective suits for high-risk operations.', img: 'https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=500&q=75' },
     { title: 'Rescue Equipment', desc: 'Ropes, harnesses, stretchers & specialized tools for emergency response.', img: 'https://images.unsplash.com/photo-1582139329536-e7284fece509?auto=format&fit=crop&w=500&q=75' },
-    { title: 'Fire Fighting Equipment', desc: 'Extinguishers, hoses, nozzles & essential firefighting tools.', img: 'https://i0.wp.com/newelaf.com/wp-content/uploads/2023/05/Fire-Fighting-Equipments.webp' },
-    { title: 'Safety Shoes', desc: 'Steel-toe, anti-slip boots meeting international safety standards.', img: 'https://m.media-amazon.com/images/I/71Dn8rcuo7L._AC_UY900_.jpg' },
-    { title: 'Road Safety', desc: 'Cones, reflective signs, barriers & safety signage.', img: 'https://skyk.in/wp-content/uploads/2025/03/13146690_Traffic-barriers-collection-min-800x600.jpg' },
-    { title: 'Fire Fighting Vehicle', desc: 'Specialized fire trucks for rapid emergency deployment.', img: 'https://media.gettyimages.com/id/89909590/photo/modern-red-fire-engine-truck-isolated-on-white-clipping-path.jpg?s=612x612&w=gi&k=20&c=prDUir8GOlpxi-ul0Pa7m4oKTG6X9tWNEoJk2MAFqNY=' },
-    { title: 'Fire Alarm System', desc: 'Smoke detectors, sensors & early warning panels.', img: 'https://douglaselectric.us/wp-content/uploads/2023/06/fire-alarm-system-installation-2-859x600.jpg' },
-    { title: 'Fall Arrest System', desc: 'Harnesses, lanyards & anchors for height safety.', img: 'https://www.shutterstock.com/image-photo/harness-fall-arrest-lanyard-260nw-2535477175.jpg' },
-    { title: 'Personal Protective Wear', desc: 'High-visibility jackets & weather-resistant clothing.', img: 'https://cdn.prod.website-files.com/647888ca92d03e3fca3f1ea0/647888ca92d03e3fca3f23a6_Safety%20yellow%20and%20orange%20vests.jpg' },
-    { title: 'Medical Equipment For Ambulance', desc: 'Defibrillators, oxygen systems & emergency kits.', img: 'https://mfimedical.com/cdn/shop/articles/stretcher-in-ambulance-1_7982e7b7-ef61-4213-8138-fcb05ceeddc7.jpg?v=1748437823' },
-    { title: 'Personal Protective Equipments', desc: 'Helmets, gloves, glasses & full PPE kits.', img: 'https://thumbs.dreamstime.com/b/personal-protective-equipment-ppe-kit-hospital-doctors-nurses-personal-protective-equipment-ppe-kit-180073267.jpg' },
-    { title: 'Laboratory safety System', desc: 'Goggles, lab coats, gloves & safety equipment for laboratory work.', img: 'https://media.istockphoto.com/id/918825222/photo/woman-scientist-adjusts-protective-goggles-staring-intently.jpg?s=612x612&w=0&k=20&c=SC0wMROl6EG69TUoKXnlQ-lssKlQzVAHjswjUTWiGSk=' },
-    { title: 'Safety Containment System', desc: 'Secondary containment solutions for hazardous materials storage.', img: 'https://assets.production.denios.io/article/327073_20220809-092005.jpg' },
-    { title: 'Spill Prevention Containment and Control', desc: 'Spill kits, absorbents & containment systems for emergency response.', img: 'https://www.absorbentsonline.com/spill-containment-blog/wp-content/plugins/phastpress/phast.php/c2VydmljZT1pbWFnZXMmc3J/jPWh0dHBzJTNBJTJGJTJGd3d3LmFic29yYmVudHNvbmxpbmUuY29tJTJGc3BpbGwtY29udGFpbm1lbnQtYmxvZyUyRndwLWNvbnRlbnQlMkZ1cGxvYWRzJTJGMjAyMiUyRjA0JTJGV2hhdC1Jcy1BLVNwaWxsLUtpdC0xMDI0eDY4My5qcGcmY2FjaGVNYXJrZXI9MTY0OTE2MzIzNi00NDgwNyZ0b2tlbj0xY2E2YmU1NWQ5ZGU5YmRk.q.jpg' },
-    { title: 'Industrial Tools', desc: 'Heavy-duty machinery & equipment for industrial applications.', img: 'https://media.istockphoto.com/id/1157027831/photo/industrial-factory-interior-with-equipment-conveyor-line-and-steel-tools-industry-background.jpg?s=612x612&w=0&k=20&c=YsNqcfwIgc8V_FU--eztNOQrZB1PWRFruUVS0M1w36U=' },
-    { title: 'Hand tools', desc: 'Wrenches, hammers, pliers & essential manual tools.', img: 'https://media.istockphoto.com/id/596042932/photo/set-of-hand-various-work-tools-on-grey-background.jpg?s=612x612&w=0&k=20&c=Tpz6mmcCZs_tVPd_yq0lmDvPqkvp0Zo5XMWpICP6rZk=' },
-    { title: 'Power Tools', desc: 'Drills, saws, grinders & electric power tools.', img: 'https://www.shutterstock.com/image-photo/construction-carpentry-tools-electric-corded-260nw-1990855535.jpg' },
+    { title: 'Fire Fighting Equipment', desc: 'Extinguishers, hoses, nozzles & essential firefighting tools.', img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=500&q=75' },
+    { title: 'Safety Shoes', desc: 'Steel-toe, anti-slip boots meeting international safety standards.', img: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=75' },
+    { title: 'Road Safety', desc: 'Cones, reflective signs, barriers & safety signage.', img: 'https://images.unsplash.com/photo-1508873696983-2df5293cb32b?auto=format&fit=crop&w=500&q=75' },
+    { title: 'Fire Fighting Vehicle', desc: 'Specialized fire trucks for rapid emergency deployment.', img: 'https://images.unsplash.com/photo-1558441719-ef04f329e414?auto=format&fit=crop&w=500&q=75' },
+    { title: 'Fire Alarm System', desc: 'Smoke detectors, sensors & early warning panels.', img: 'https://images.unsplash.com/photo-1558441719-ef04f329e414?auto=format&fit=crop&w=500&q=75' },
+    { title: 'Fall Arrest System', desc: 'Harnesses, lanyards & anchors for height safety.', img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=500&q=75' },
+    { title: 'Personal Protective Wear', desc: 'High-visibility jackets & weather-resistant clothing.', img: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=500&q=75' },
+    { title: 'Medical Equipment For Ambulance', desc: 'Defibrillators, oxygen systems & emergency kits.', img: 'https://images.unsplash.com/photo-1583912267670-6575ad4736f8?auto=format&fit=crop&w=500&q=75' },
+    { title: 'Personal Protective Equipments', desc: 'Helmets, gloves, glasses & full PPE kits.', img: 'https://images.unsplash.com/photo-1584634731339-252c581abfc5?auto=format&fit=crop&w=500&q=75' },
+    { title: 'Laboratory safety System', desc: 'Goggles, lab coats, gloves & safety equipment for laboratory work.', img: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=500&q=75' },
+    { title: 'Safety Containment System', desc: 'Secondary containment solutions for hazardous materials storage.', img: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=500&q=75' },
+    { title: 'Spill Prevention Containment and Control', desc: 'Spill kits, absorbents & containment systems for emergency response.', img: 'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=500&q=75' },
+    { title: 'Industrial Tools', desc: 'Heavy-duty machinery & equipment for industrial applications.', img: 'https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=500&q=75' },
+    { title: 'Hand tools', desc: 'Wrenches, hammers, pliers & essential manual tools.', img: 'https://images.unsplash.com/photo-1581147036324-c17ac41dfa6c?auto=format&fit=crop&w=500&q=75' },
+    { title: 'Power Tools', desc: 'Drills, saws, grinders & electric power tools.', img: 'https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=500&q=75' },
   ];
 
   const { addToCart } = useCart();
@@ -393,52 +393,47 @@ function Home() {
         schema={[homeSchema, faqSchema]}
       />
 
-      {}
+      {/* Hero Section */}
       <section
         ref={heroRef}
         className="relative h-screen min-h-[640px] flex flex-col items-center justify-center text-center px-6 overflow-hidden"
         aria-label="Hero"
       >
-        {}
+        {/* Background Parallax */}
         <motion.div
           className="absolute inset-0 -z-10"
           style={{ scale: heroScale, y: heroY }}
         >
           <img
-            src="https://wallpapercave.com/wp/wp2592365.jpg"
-            alt=""
-            aria-hidden="true"
+            src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=1400&q=75"
+            alt="SS Safety Solutions Industrial Protection"
             className="w-full h-full object-cover"
             fetchpriority="high"
           />
         </motion.div>
 
-        {}
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/75 via-black/55 to-black/85" />
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-red-950/40 via-transparent to-orange-950/30" />
 
-        {}
+        {/* Floating Particles */}
         <Particles />
 
-        {}
+        {/* Hero Content */}
         <motion.div
           className="relative z-10 max-w-5xl mx-auto"
           style={{ opacity: heroOpacity }}
         >
-          {}
+          {/* Flame Icon Badge */}
           <motion.div
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="mb-6"
+            className="mb-6 flex justify-center"
           >
-            <img
-              src="https://png.pngtree.com/png-vector/20250112/ourmid/pngtree-bright-orange-flame-icon-illustration-with-vibrant-yellow-and-red-tones-png-image_15160948.png"
-              alt="Flame Icon"
-              width="64"
-              height="64"
-              className="h-16 w-16 mx-auto object-contain drop-shadow-[0_0_24px_rgba(251,146,60,0.8)]"
-            />
+            <div className="p-3 rounded-2xl bg-orange-500/10 border border-orange-500/20 backdrop-blur-sm shadow-[0_0_30px_rgba(249,115,22,0.25)]">
+              <Flame className="w-10 h-10 text-orange-500 animate-pulse" aria-hidden="true" />
+            </div>
           </motion.div>
 
           {}
