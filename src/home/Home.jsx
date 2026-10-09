@@ -348,23 +348,23 @@ function Home() {
   ];
 
   const categories = [
-    { title: 'Security Equipment', desc: 'Tactical gear, body armor, helmets & protective suits for high-risk operations.', img: 'https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=500&q=75' },
-    { title: 'Rescue Equipment', desc: 'Ropes, harnesses, stretchers & specialized tools for emergency response.', img: 'https://images.unsplash.com/photo-1582139329536-e7284fece509?auto=format&fit=crop&w=500&q=75' },
-    { title: 'Fire Fighting Equipment', desc: 'Extinguishers, hoses, nozzles & essential firefighting tools.', img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=500&q=75' },
-    { title: 'Safety Shoes', desc: 'Steel-toe, anti-slip boots meeting international safety standards.', img: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=75' },
-    { title: 'Road Safety', desc: 'Cones, reflective signs, barriers & safety signage.', img: 'https://images.unsplash.com/photo-1508873696983-2df5293cb32b?auto=format&fit=crop&w=500&q=75' },
-    { title: 'Fire Fighting Vehicle', desc: 'Specialized fire trucks for rapid emergency deployment.', img: 'https://images.unsplash.com/photo-1558441719-ef04f329e414?auto=format&fit=crop&w=500&q=75' },
-    { title: 'Fire Alarm System', desc: 'Smoke detectors, sensors & early warning panels.', img: 'https://images.unsplash.com/photo-1558441719-ef04f329e414?auto=format&fit=crop&w=500&q=75' },
-    { title: 'Fall Arrest System', desc: 'Harnesses, lanyards & anchors for height safety.', img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=500&q=75' },
-    { title: 'Personal Protective Wear', desc: 'High-visibility jackets & weather-resistant clothing.', img: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=500&q=75' },
-    { title: 'Medical Equipment For Ambulance', desc: 'Defibrillators, oxygen systems & emergency kits.', img: 'https://images.unsplash.com/photo-1583912267670-6575ad4736f8?auto=format&fit=crop&w=500&q=75' },
-    { title: 'Personal Protective Equipments', desc: 'Helmets, gloves, glasses & full PPE kits.', img: 'https://images.unsplash.com/photo-1584634731339-252c581abfc5?auto=format&fit=crop&w=500&q=75' },
-    { title: 'Laboratory safety System', desc: 'Goggles, lab coats, gloves & safety equipment for laboratory work.', img: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=500&q=75' },
-    { title: 'Safety Containment System', desc: 'Secondary containment solutions for hazardous materials storage.', img: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=500&q=75' },
-    { title: 'Spill Prevention Containment and Control', desc: 'Spill kits, absorbents & containment systems for emergency response.', img: 'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=500&q=75' },
-    { title: 'Industrial Tools', desc: 'Heavy-duty machinery & equipment for industrial applications.', img: 'https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=500&q=75' },
-    { title: 'Hand tools', desc: 'Wrenches, hammers, pliers & essential manual tools.', img: 'https://images.unsplash.com/photo-1581147036324-c17ac41dfa6c?auto=format&fit=crop&w=500&q=75' },
-    { title: 'Power Tools', desc: 'Drills, saws, grinders & electric power tools.', img: 'https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=500&q=75' },
+    { title: 'Security Equipment', desc: 'Tactical gear, body armor, helmets & protective suits for high-risk operations.', img: '/images/categories/security-equipment.png' },
+    { title: 'Rescue Equipment', desc: 'Ropes, harnesses, stretchers & specialized tools for emergency response.', img: '/images/categories/rescue-equipment.jpg' },
+    { title: 'Fire Fighting Equipment', desc: 'Extinguishers, hoses, nozzles & essential firefighting tools.', img: '/images/categories/fire-fighting-equipment.jpg' },
+    { title: 'Safety Shoes', desc: 'Steel-toe, anti-slip boots meeting international safety standards.', img: '/images/categories/safety-shoes.jpg' },
+    { title: 'Road Safety', desc: 'Cones, reflective signs, barriers & safety signage.', img: '/images/categories/road-safety.jpg' },
+    { title: 'Fire Fighting Vehicle', desc: 'Specialized fire trucks for rapid emergency deployment.', img: '/images/categories/fire-fighting-vehicle.jpg' },
+    { title: 'Fire Alarm System', desc: 'Smoke detectors, sensors & early warning panels.', img: '/images/categories/fire-alarm-system.jpg' },
+    { title: 'Fall Arrest System', desc: 'Harnesses, lanyards & anchors for height safety.', img: '/images/categories/fall-arrest-system.jpg' },
+    { title: 'Personal Protective Wear', desc: 'High-visibility jackets & weather-resistant clothing.', img: '/images/categories/personal-protective-wear.jpg' },
+    { title: 'Medical Equipment For Ambulance', desc: 'Defibrillators, oxygen systems & emergency kits.', img: '/images/categories/medical-equipment-ambulance.jpg' },
+    { title: 'Personal Protective Equipments', desc: 'Helmets, gloves, glasses & full PPE kits.', img: '/images/categories/personal-protective-equipment.jpg' },
+    { title: 'Laboratory safety System', desc: 'Goggles, lab coats, gloves & safety equipment for laboratory work.', img: '/images/categories/laboratory-safety-system.jpg' },
+    { title: 'Safety Containment System', desc: 'Secondary containment solutions for hazardous materials storage.', img: '/images/categories/safety-containment-system.jpg' },
+    { title: 'Spill Prevention Containment and Control', desc: 'Spill kits, absorbents & containment systems for emergency response.', img: '/images/categories/spill-prevention-containment.jpg' },
+    { title: 'Industrial Tools', desc: 'Heavy-duty machinery & equipment for industrial applications.', img: '/images/categories/industrial-tools.jpg' },
+    { title: 'Hand tools', desc: 'Wrenches, hammers, pliers & essential manual tools.', img: '/images/categories/hand-tools.jpg' },
+    { title: 'Power Tools', desc: 'Drills, saws, grinders & electric power tools.', img: '/images/categories/power-tools.jpg' },
   ];
 
   const { addToCart } = useCart();
@@ -410,8 +410,8 @@ function Home() {
           style={{ scale: heroScale, y: heroY }}
         >
           <img
-            src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=1400&q=75"
-            alt="SS Safety Solutions Industrial Protection"
+            src="/images/hero/hero-bg.jpg"
+            alt="SS Safety Solutions Industrial Protection & Fire Safety"
             className="w-full h-full object-cover"
             fetchpriority="high"
           />

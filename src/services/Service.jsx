@@ -32,87 +32,87 @@ function Service() {
     {
       title: "Security Equipment",
       desc: "Tactical gear, body armor, helmets & protective suits for high-risk operations.",
-      img: "https://premierbodyarmor.com/cdn/shop/articles/bump_helmets.png?v=1724771301",
+      img: "/images/categories/security-equipment.png",
     },
     {
       title: "Rescue Equipment",
       desc: "Ropes, harnesses, stretchers & specialized tools for emergency response.",
-      img: "https://www.mtrsuperstore.com/cdn/shop/files/harness-2_1200x.jpg?v=1755292806",
+      img: "/images/categories/rescue-equipment.jpg",
     },
     {
       title: "Fire Fighting Equipment",
       desc: "Extinguishers, hoses, nozzles & essential firefighting tools.",
-      img: "https://blog.qrfs.com/wp-content/uploads/2018/03/fire-hose-spray-nozzle-600-1.jpg",
+      img: "/images/categories/fire-fighting-equipment.jpg",
     },
     {
       title: "Safety Shoes",
       desc: "Steel-toe, anti-slip boots meeting international safety standards.",
-      img: "https://m.media-amazon.com/images/I/71GaLFdiRoL._AC_UY900_.jpg",
+      img: "/images/categories/safety-shoes.jpg",
     },
     {
       title: "Road Safety",
       desc: "Cones, reflective signs, barriers & safety signage.",
-      img: "https://m.media-amazon.com/images/I/611hO55xZBL._AC_UF894,1000_QL80_.jpg",
+      img: "/images/categories/road-safety.jpg",
     },
     {
       title: "Fire Fighting Vehicle",
       desc: "Specialized fire trucks for rapid emergency deployment.",
-      img: "https://media.gettyimages.com/id/89909590/photo/modern-red-fire-engine-truck-isolated-on-white-clipping-path.jpg?s=612x612&w=gi&k=20&c=prDUir8GOlpxi-ul0Pa7m4oKTG6X9tWNEoJk2MAFqNY=",
+      img: "/images/categories/fire-fighting-vehicle.jpg",
     },
     {
       title: "Fire Alarm System",
       desc: "Smoke detectors, sensors & early warning panels.",
-      img: "https://blog.qrfs.com/wp-content/uploads/2019/04/fire-alarm-control-panel-b-600.jpg",
+      img: "/images/categories/fire-alarm-system.jpg",
     },
     {
       title: "Fall Arrest System",
       desc: "Harnesses, lanyards & anchors for height safety.",
-      img: "https://ils.org.uk/wordpress/wp-content/uploads/2024/01/calculating-fall-arrest-distance-shock-absorbing-lanyards-diagram-1024x683.jpg",
+      img: "/images/categories/fall-arrest-system.jpg",
     },
     {
       title: "Personal Protective Wear",
       desc: "High-visibility jackets & weather-resistant clothing.",
-      img: "https://www.cabletiesandmore.com/images/gallery/main/portwest-us376-expert-surveyor-vest-hi-vest.jpg",
+      img: "/images/categories/personal-protective-wear.jpg",
     },
     {
       title: "Medical Equipment For Ambulance",
       desc: "Defibrillators, oxygen systems & emergency kits.",
-      img: "https://www.technimount.com/wp-content/uploads/2023/01/XTENSION-PRO-ASSISTANT-CCT-E-RENDU-1.png",
+      img: "/images/categories/medical-equipment-ambulance.jpg",
     },
     {
       title: "Personal Protective Equipments",
       desc: "Helmets, gloves, glasses & full PPE kits.",
-      img: "https://thumbs.dreamstime.com/b/essential-personal-protective-equipment-kit-safety-hazardous-work-environments-comprehensive-collection-personal-402443070.jpg",
+      img: "/images/categories/personal-protective-equipment.jpg",
     },
     {
       title: "Laboratory safety System",
       desc: "Goggles, lab coats, gloves & safety equipment for laboratory work.",
-      img: "https://media.istockphoto.com/id/918825222/photo/woman-scientist-adjusts-protective-goggles-staring-intently.jpg?s=612x612&w=0&k=20&c=SC0wMROl6EG69TUoKXnlQ-lssKlQzVAHjswjUTWiGSk=",
+      img: "/images/categories/laboratory-safety-system.jpg",
     },
     {
       title: "Safety Containment System",
       desc: "Secondary containment solutions for hazardous materials storage.",
-      img: "https://assets.production.denios.io/article/327073_20220809-092005.jpg",
+      img: "/images/categories/safety-containment-system.jpg",
     },
     {
       title: "Spill Prevention Containment and Control",
       desc: "Spill kits, absorbents & containment systems for emergency response.",
-      img: "https://www.absorbentsonline.com/spill-containment-blog/wp-content/plugins/phastpress/phast.php/c2VydmljZT1pbWFnZXMmc3J/jPWh0dHBzJTNBJTJGJTJGd3d3LmFic29yYmVudHNvbmxpbmUuY29tJTJGc3BpbGwtY29udGFpbm1lbnQtYmxvZyUyRndwLWNvbnRlbnQlMkZ1cGxvYWRzJTJGMjAyMiUyRjA0JTJGV2hhdC1Jcy1BLVNwaWxsLUtpdC0xMDI0eDY4My5qcGcmY2FjaGVNYXJrZXI9MTY0OTE2MzIzNi00NDgwNyZ0b2tlbj0xY2E2YmU1NWQ5ZGU5YmRk.q.jpg",
+      img: "/images/categories/spill-prevention-containment.jpg",
     },
     {
       title: "Industrial Tools",
       desc: "Heavy-duty machinery & equipment for industrial applications.",
-      img: "https://media.istockphoto.com/id/1157027831/photo/industrial-factory-interior-with-equipment-conveyor-line-and-steel-tools-industry-background.jpg?s=612x612&w=0&k=20&c=YsNqcfwIgc8V_FU--eztNOQrZB1PWRFruUVS0M1w36U=",
+      img: "/images/categories/industrial-tools.jpg",
     },
     {
       title: "Hand tools",
       desc: "Wrenches, hammers, pliers & essential manual tools.",
-      img: "https://media.istockphoto.com/id/596042932/photo/set-of-hand-various-work-tools-on-grey-background.jpg?s=612x612&w=0&k=20&c=Tpz6mmcCZs_tVPd_yq0lmDvPqkvp0Zo5XMWpICP6rZk=",
+      img: "/images/categories/hand-tools.jpg",
     },
     {
       title: "Power Tools",
       desc: "Drills, saws, grinders & electric power tools.",
-      img: "https://www.shutterstock.com/image-photo/construction-carpentry-tools-electric-corded-260nw-1990855535.jpg",
+      img: "/images/categories/power-tools.jpg",
     },
   ];
 
@@ -136,7 +136,7 @@ function Service() {
       <section className="relative py-28 md:py-40 overflow-hidden bg-gradient-to-br from-gray-900 via-red-900/40 to-gray-900">
         <div className="absolute inset-0 bg-black/50"></div>
         <img
-          src="https://media.istockphoto.com/id/2202739604/photo/brave-firefighter-battling-flames-in-smoky-scene.jpg?s=612x612&w=0&k=20&c=d4u_iYVsLrMv0LT-Gku9xQ7KgrN22hBAgit5hvARR88="
+          src="/images/hero/services-hero.jpg"
           alt="Brave Firefighters Battling Intense Flames"
           className="absolute inset-0 w-full h-full object-cover opacity-50"
         />

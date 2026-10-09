@@ -105,7 +105,7 @@ function Login() {
           {}
           <div className="hidden lg:block relative h-full min-h-screen">
             <img
-              src="https://images.unsplash.com/photo-1618609252884-c29e29b32205?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZmlyZSUyMGZpZ2h0ZXJ8ZW58MHx8MHx8fDA%3D"
+              src="/images/auth/firefighter-auth.jpg"
               alt="Firefighter in action - Safety First"
               className="absolute inset-0 w-full h-full object-cover"
             />
